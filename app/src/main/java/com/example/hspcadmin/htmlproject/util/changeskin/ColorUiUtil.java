@@ -6,13 +6,15 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 
 import com.example.hspcadmin.htmlproject.view.AbstractLayout;
+import com.example.hspcadmin.htmlproject.view.CustomViewPager;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by DJMoving on 2018/8/1.
  */
 public class ColorUiUtil {
     /**
@@ -49,7 +51,14 @@ public class ColorUiUtil {
                 }
             }
         } else {
-            if (rootView instanceof ViewGroup) {
+             if(rootView instanceof CustomViewPager){
+                 CustomViewPager viewPager = ((CustomViewPager) rootView);
+                for(int i=0;i<viewPager.getViews().size();i++){
+                    if (viewPager.getViews().get(i) instanceof AbstractLayout) {
+                        changeTheme(viewPager.getViews().get(i),theme);
+                    }
+                }
+            }else if (rootView instanceof ViewGroup) {
                 int count = ((ViewGroup) rootView).getChildCount();
                 for (int i = 0; i < count; i++) {
                     changeTheme(((ViewGroup) rootView).getChildAt(i), theme);
@@ -77,5 +86,22 @@ public class ColorUiUtil {
         }
     }
 
+
+
+    private static List<View> getAllChildViews(View view) {
+        List<View> allchildren = new ArrayList<View>();
+        if(view instanceof AbstractLayout){
+            ((AbstractLayout)view).setTheme();
+        }else if (view instanceof ViewGroup) {
+            ViewGroup vp = (ViewGroup) view;
+            for (int i = 0; i < vp.getChildCount(); i++) {
+                View viewchild = vp.getChildAt(i);
+                allchildren.add(viewchild);
+                //再次 调用本身（递归）
+                allchildren.addAll(getAllChildViews(viewchild));
+            }
+        }
+        return allchildren;
+    }
 
 }

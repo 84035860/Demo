@@ -4,11 +4,15 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
+
+import java.util.List;
 
 /**
  * 自定义ViewPager，主要用于控制是否支持左右滑动
  */
 public class CustomViewPager extends ViewPager {
+    private List<View> views;
 
     //判断是否支持滑动
     private boolean isCanScroll = false;
@@ -28,6 +32,14 @@ public class CustomViewPager extends ViewPager {
     @Override
     public boolean onTouchEvent(MotionEvent arg0) {
         return isCanScroll ? super.onTouchEvent(arg0) : false;
+    }
+
+    public List<View> getViews() {
+        return views;
+    }
+
+    public void setViews(List<View> views) {
+        this.views = views;
     }
 
     @Override

@@ -61,6 +61,7 @@ public class MainHostActivity extends BaseActivity {
     }
 
     private void initData() {
+        demoHostViewpager.setViews(HostView);
         demoHostViewpager.setAdapter(new ViewPagerAdapter());
         demoHostViewpager.setScanScroll(false);
         demoHostViewpager.setOnPageChangeListener(changeListener);
@@ -184,7 +185,7 @@ public class MainHostActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        View view = demoHostViewpager.findViewWithTag(demoHostViewpager.getCurrentItem());
+        View view = demoHostViewpager.getChildAt(demoHostViewpager.getChildCount());
         if (view instanceof AbstractLayout) {
             ((AbstractLayout) view).onResume();
         }
@@ -193,7 +194,7 @@ public class MainHostActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        View view = demoHostViewpager.findViewWithTag(demoHostViewpager.getCurrentItem());
+        View view = demoHostViewpager.getChildAt(demoHostViewpager.getChildCount());
         if (view instanceof AbstractLayout) {
             ((AbstractLayout) view).onPause();
         }
