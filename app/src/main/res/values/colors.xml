@@ -11,4 +11,6 @@
 
     <!--黄色yellow-->
     <color name="yellow">#D6A440</color>
+    <!-- 黑色 -->
+    <color name="black">#262834</color>
 </resources>

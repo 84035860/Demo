@@ -23,4 +23,33 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">12sp</item>
     </style>
+
+    <!-- 白天模式 -->
+    <style name="ThemeDayTime">
+        <!-- 页面背景色 -->
+        <item name="bg_color">@color/white</item>
+        <item name="font_color">@color/black</item>
+        <item name="line_color">@color/black</item>
+        <item name="edit_color">@color/black</item>
+        <item name="title_bg_color">@color/trade_tab</item>
+        <item name="title_font_color">@color/white</item>
+        <item name="button_bg_color">@color/colorPrimary</item>
+        <item name="button_font_color">@color/white</item>
+        <item name="back_img">@mipmap/btn_top_back_pressed</item>
+    </style>
+
+    <!-- 夜间模式 -->
+    <style name="ThemeDayNight">
+        <!-- 页面背景色 -->
+        <item name="bg_color">@color/trade_tab</item>
+        <item name="font_color">@color/white</item>
+        <item name="line_color">@color/white</item>
+        <item name="edit_color">@color/white</item>
+        <item name="title_bg_color">@color/colorPrimary</item>
+        <item name="title_font_color">@color/white</item>
+        <item name="button_bg_color">@color/white</item>
+        <item name="button_font_color">@color/colorPrimary</item>
+        <item name="back_img">@mipmap/btn_top_back_normal</item>
+    </style>
+
 </resources>

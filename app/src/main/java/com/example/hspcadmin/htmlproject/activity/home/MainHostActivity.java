@@ -57,8 +57,7 @@ public class MainHostActivity extends BaseActivity {
         HostView.add(homeViewUi);
         homeViewUi = new HomeViewUi(this);
         HostView.add(homeViewUi);
-        homeViewUi = new HomeViewUi(this);
-        HostView.add(homeViewUi);
+        HostView.add(UimoduleUtils.getUimoduleUtils().getUiView(UimoduleUtils.BASEVIEW_HOME_SETTING, MainHostActivity.this).getAbstractLayout());
     }
 
     private void initData() {

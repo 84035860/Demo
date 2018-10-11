@@ -24,7 +24,6 @@ import java.util.zip.ZipOutputStream;
 /**
  * 工具类
  *
- * @author wangrufei
  */
 public class ZipUtils {
     /**
@@ -232,7 +231,7 @@ public class ZipUtils {
     /**
      * 判断是否存在SDCard
      *
-     * @return：如果存在则返回真，否则为假
+     * @return：如果存在则返回true，否则为false
      */
     public static boolean ExistSDCard() {
         return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());

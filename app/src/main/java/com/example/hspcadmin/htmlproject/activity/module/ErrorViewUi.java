@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.hspcadmin.htmlproject.R;
+import com.example.hspcadmin.htmlproject.exception.AppException;
 import com.example.hspcadmin.htmlproject.view.AbstractLayout;
 
 /**
@@ -30,6 +31,11 @@ public class ErrorViewUi extends AbstractLayout{
         errorVeiw.setTextColor(context.getResources().getColor(R.color.yellow));
         errorVeiw.setGravity(Gravity.CENTER);
         errorVeiw.setTextSize(TypedValue.COMPLEX_UNIT_PX,context.getResources().getDimension(R.dimen.font_tv_big));
+        if (exception.getSharedPreferencesValue(AppException.SP_THEME).equals("1")) {
+            errorVeiw.setBackgroundColor(context.getResources().getColor(R.color.white));
+        } else {
+            errorVeiw.setBackgroundColor(context.getResources().getColor(R.color.trade_tab));
+        }
         errorVeiw.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         errorVeiw.setText("页面处理错误");
         errorVeiw.setLayoutParams(new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,

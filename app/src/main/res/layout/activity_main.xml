@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/bg_color">
     <WebView
         android:id="@+id/html_webview"
         android:layout_marginTop="45dp"
@@ -13,8 +14,8 @@
         android:id="@+id/html_title"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="#262834"
+        android:background="?attr/title_bg_color"
         android:textSize="17sp"
         android:gravity="center"
-        android:textColor="@android:color/white"/>
+        android:textColor="?attr/title_font_color"/>
 </RelativeLayout>

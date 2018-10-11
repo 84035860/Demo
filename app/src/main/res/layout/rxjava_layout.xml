@@ -3,7 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="4"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="?attr/bg_color">
 
     <TextView
         android:id="@+id/rxjava_event_tv"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:layout_margin="10dp"
-        android:textColor="@color/trade_tab"
+        android:textColor="?attr/font_color"
         android:textSize="@dimen/font_tv_big"/>
 
     <TextView
@@ -24,8 +25,8 @@
         android:layout_margin="10dp"
         android:text="发送请求"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"
+        android:textColor="?attr/button_font_color"
+        android:background="?attr/button_bg_color"
 
         />
 </LinearLayout>

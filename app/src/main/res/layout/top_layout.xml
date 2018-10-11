@@ -8,7 +8,7 @@
         android:id="@+id/actop_base_pressed"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:src="@mipmap/btn_top_back_pressed"
+        android:src="?attr/back_img"
         android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"/>
 
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/font_tv_big"
-        android:textColor="@color/white"
+        android:textColor="?attr/title_font_color"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 

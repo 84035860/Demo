@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/bg_color">
 
     <com.example.hspcadmin.htmlproject.view.ProgressTime
         android:id="@+id/app_progresstime"
@@ -18,8 +19,8 @@
         android:layout_margin="10dp"
         android:text="开启时间"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"/>
+        android:textColor="?attr/button_font_color"
+        android:background="?attr/button_bg_color"/>
 
     <TextView
         android:id="@+id/app_dome1"
@@ -30,8 +31,8 @@
         android:layout_margin="10dp"
         android:text="跳转RxJava + Retrofit"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"/>
+        android:textColor="?attr/button_font_color"
+        android:background="?attr/button_bg_color"/>
 
     <TextView
         android:id="@+id/app_dome2"
@@ -42,8 +43,8 @@
         android:layout_margin="10dp"
         android:text="跳转Okhttp"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"/>
+        android:textColor="?attr/button_font_color"
+        android:background="?attr/button_bg_color"/>
 
     <TextView
         android:id="@+id/app_dome3"
@@ -54,8 +55,8 @@
         android:layout_margin="10dp"
         android:text="跳转其他app页面"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"/>
+        android:textColor="?attr/button_font_color"
+        android:background="?attr/button_bg_color"/>
 
     <TextView
         android:id="@+id/app_dome4"
@@ -66,6 +67,6 @@
         android:layout_margin="10dp"
         android:text="跳转首页"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"/>
+        android:textColor="?attr/button_font_color"
+        android:background="?attr/button_bg_color"/>
 </LinearLayout>

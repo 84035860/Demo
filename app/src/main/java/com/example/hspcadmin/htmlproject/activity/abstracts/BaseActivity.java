@@ -8,16 +8,29 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.hspcadmin.htmlproject.R;
+import com.example.hspcadmin.htmlproject.exception.AppException;
+
 /**
  * Created by hspcadmin on 2018/6/28.
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
+    public AppException exception;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setFullScreenStatusBar();
+        exception = AppException.getInstance();
+        //设置日间夜间模式,用来换肤
+        if (exception.getSharedPreferencesValue(AppException.SP_THEME).equals("1")) {
+            //白天模式
+            setTheme(R.style.ThemeDayTime);
+        } else {
+            //夜间模式
+            setTheme(R.style.ThemeDayNight);
+        }
     }
 
     @Override
