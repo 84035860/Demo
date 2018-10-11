@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="_7C7F99">#7C7F99</color>
+    <color name="green">#05B7A5</color>
+    <color name="trade_tab">#212233</color>
+    <color name="white">#FFFFFF</color>
+    <color name="_3A3A52">#3A3A52</color>
+
+    <!--黄色yellow-->
+    <color name="yellow">#D6A440</color>
+</resources>

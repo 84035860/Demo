@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/trade_tab"/>
+
+    <com.example.hspcadmin.htmlproject.view.TopBaseView
+        android:id="@+id/base_top_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_top_height"/>
+
+</LinearLayout>

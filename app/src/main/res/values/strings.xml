@@ -1,0 +1,5 @@
+<!DOCTYPE resources[<!ENTITY foo "分糖">]>
+
+<resources>
+    <string name="app_name">&foo;APP</string>
+</resources>

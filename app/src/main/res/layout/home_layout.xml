@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.hspcadmin.htmlproject.view.ProgressTime
+        android:id="@+id/app_progresstime"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        />
+    <TextView
+        android:id="@+id/app_skip"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:text="开启时间"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/app_dome1"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:text="跳转RxJava + Retrofit"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/app_dome2"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:text="跳转Okhttp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/app_dome3"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:text="跳转其他app页面"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/app_dome4"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:text="跳转首页"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>
