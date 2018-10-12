@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/font_tv_big"
+        android:tag="@string/skin_title_color"
         android:textColor="?attr/title_font_color"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>

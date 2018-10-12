@@ -2,4 +2,14 @@
 
 <resources>
     <string name="app_name">&foo;APP</string>
+
+    <!--换肤tag-->
+    <string name="skin_bg_color">skin_bg_color</string>
+    <string name="skin_font_color">skin_font_color</string>
+    <string name="skin_line_color">skin_line_color</string>
+    <string name="skin_edit_color">skin_edit_color</string>
+    <string name="skin_title_color">skin_title_color</string>
+    <string name="skin_button_color">skin_button_color</string>
+    <string name="skin_back_img">skin_back_img</string>
+
 </resources>

@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:layout_margin="10dp"
+        android:tag="@string/skin_font_color"
         android:textColor="?attr/font_color"
         android:textSize="@dimen/font_tv_big"/>
 
@@ -25,6 +26,7 @@
         android:layout_margin="10dp"
         android:text="发送请求"
         android:gravity="center"
+        android:tag="@string/skin_button_color"
         android:textColor="?attr/button_font_color"
         android:background="?attr/button_bg_color"
 

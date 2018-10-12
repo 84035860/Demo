@@ -36,7 +36,6 @@ public class AppException extends Application {
 
     private void initSp(){
         sp = PreferenceManager.getDefaultSharedPreferences(mContext);
-        setSharedPreferencesValue(SP_THEME,"2");
     }
 
     public SharedPreferences getSp() {

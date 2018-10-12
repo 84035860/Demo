@@ -6,6 +6,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
+        android:tag="@string/skin_bg_color"
         android:background="?attr/title_bg_color"/>
 
     <com.example.hspcadmin.htmlproject.view.TopBaseView

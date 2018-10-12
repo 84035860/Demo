@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:tag="@string/skin_bg_color"
     android:background="?attr/bg_color">
 
     <com.example.hspcadmin.htmlproject.view.ProgressTime
@@ -19,6 +20,7 @@
         android:layout_margin="10dp"
         android:text="开启时间"
         android:gravity="center"
+        android:tag="@string/skin_button_color"
         android:textColor="?attr/button_font_color"
         android:background="?attr/button_bg_color"/>
 
@@ -31,6 +33,7 @@
         android:layout_margin="10dp"
         android:text="跳转RxJava + Retrofit"
         android:gravity="center"
+        android:tag="@string/skin_button_color"
         android:textColor="?attr/button_font_color"
         android:background="?attr/button_bg_color"/>
 
@@ -43,6 +46,7 @@
         android:layout_margin="10dp"
         android:text="跳转Okhttp"
         android:gravity="center"
+        android:tag="@string/skin_button_color"
         android:textColor="?attr/button_font_color"
         android:background="?attr/button_bg_color"/>
 
@@ -67,6 +71,7 @@
         android:layout_margin="10dp"
         android:text="跳转首页"
         android:gravity="center"
+        android:tag="@string/skin_button_color"
         android:textColor="?attr/button_font_color"
         android:background="?attr/button_bg_color"/>
 </LinearLayout>
