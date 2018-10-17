@@ -34,7 +34,7 @@ public class BaseViewActivity extends BaseActivity {
         setRightScrollDestroyActivity();
 //        setStatusBar();
 
-        setContentView(R.layout.uiview_layout);
+        setContentView(R.layout.view_ui_layout);
         ButterKnife.bind(this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);

@@ -23,7 +23,7 @@ public class TopBaseView extends RelativeLayout {
     public TopBaseView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        View view = LayoutInflater.from(context).inflate(R.layout.top_layout, this,true);
+        View view = LayoutInflater.from(context).inflate(R.layout.view_top_layout, this,true);
         Pressed = view.findViewById(R.id.actop_base_pressed);
         actopBaseTv = view.findViewById(R.id.actop_base_tv);
         init();

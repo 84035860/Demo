@@ -1,6 +1,10 @@
 package com.example.hspcadmin.htmlproject.activity.home;
 
+import android.animation.Animator;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -13,11 +17,18 @@ import android.widget.Toast;
 import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.abstracts.BaseActivity;
 import com.example.hspcadmin.htmlproject.activity.abstracts.BaseViewActivity;
+import com.example.hspcadmin.htmlproject.util.EventBusUtils;
+import com.example.hspcadmin.htmlproject.util.EventBusVal;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;
 import com.example.hspcadmin.htmlproject.util.UimoduleUtils;
+import com.example.hspcadmin.htmlproject.util.changeskin.ColorUiUtil;
 import com.example.hspcadmin.htmlproject.view.AbstractLayout;
 import com.example.hspcadmin.htmlproject.view.BottomNavigationBar;
 import com.example.hspcadmin.htmlproject.view.CustomViewPager;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +57,7 @@ public class MainHostActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         initView();
         initData();
     }
@@ -191,6 +203,49 @@ public class MainHostActivity extends BaseActivity {
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void MessageEventBus(EventBusUtils eventBusUtils) {
+        if(EventBusVal.INSTANCE.getEVENTBUS_VAL_HOME_SKIN().equals(eventBusUtils.getValstr())){
+            final View rootView = getWindow().getDecorView();
+            if (Build.VERSION.SDK_INT >= 14) {
+                rootView.setDrawingCacheEnabled(true);
+                rootView.buildDrawingCache(true);
+                final Bitmap localBitmap = Bitmap.createBitmap(rootView.getDrawingCache());
+                rootView.setDrawingCacheEnabled(false);
+                if (null != localBitmap && rootView instanceof ViewGroup) {
+                    final View localView2 = new View(MainHostActivity.this);
+                    localView2.setBackgroundDrawable(new BitmapDrawable(getResources(), localBitmap));
+                    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                    ((ViewGroup) rootView).addView(localView2, params);
+                    localView2.animate().alpha(0).setDuration(400).setListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+                            ColorUiUtil.changeTheme(rootView, getTheme());
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            ((ViewGroup) rootView).removeView(localView2);
+                            localBitmap.recycle();
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
+
+                        }
+                    }).start();
+                }
+            } else {
+                ColorUiUtil.changeTheme(rootView, getTheme());
+            }
+        }
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -198,5 +253,11 @@ public class MainHostActivity extends BaseActivity {
         if (view instanceof AbstractLayout) {
             ((AbstractLayout) view).onPause();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
