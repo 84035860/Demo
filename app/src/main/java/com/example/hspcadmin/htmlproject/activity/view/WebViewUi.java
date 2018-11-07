@@ -1,4 +1,4 @@
-package com.example.hspcadmin.htmlproject.activity.module;
+package com.example.hspcadmin.htmlproject.activity.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
-import com.example.hspcadmin.htmlproject.view.AbstractLayout;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 
 /**
  * Created by hspcadmin on 2018/10/10.

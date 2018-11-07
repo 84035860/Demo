@@ -3,7 +3,7 @@ package com.example.hspcadmin.htmlproject.util;
 import android.content.Intent;
 import android.content.res.Resources;
 
-import com.example.hspcadmin.htmlproject.activity.abstracts.BaseViewActivity;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractViewActivity;
 import com.example.hspcadmin.htmlproject.exception.AppException;
 
 /**
@@ -34,6 +34,7 @@ public class ToolUtils {
             return;
         }
         Intent intent = new Intent(AppException.getInstance().getApplicationContext(),s);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
         AppException.getInstance().getApplicationContext().startActivity(intent);
     }
 
@@ -41,12 +42,13 @@ public class ToolUtils {
      *
      *
      * */
-    public static void starIntentBaseView(Class s,int ClassNAME){
+    public static void starIntentBaseView(Class s,int ClassName){
         if(isFastClick()){
             return;
         }
         Intent intent = new Intent(AppException.getInstance().getApplicationContext(),s);
-        intent.putExtra(BaseViewActivity.ClASSNAME,ClassNAME);
+        intent.putExtra(AbstractViewActivity.ClASSNAME,ClassName);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
         AppException.getInstance().getApplicationContext().startActivity(intent);
     }
 

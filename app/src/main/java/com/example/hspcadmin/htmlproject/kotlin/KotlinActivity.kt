@@ -9,15 +9,15 @@ import org.json.JSONArray
  * Created by hspcadmin on 2018/10/15.
  */
 
-const val s:String = ""//const 编译期
+const val baseName:String = "kotlin"//const 编译期
 
 class KotlinActivity:BaseActivity(){
-    var TextTvstr:String = "第一个"
-    val TextTv:String = "第二个"
-    var Age:String? = ""
-    var Account:String = ""
-    var jsonarr:JSONArray? = null
-    var kotlinBean = KotlinBean("")
+    private var TextTvstr:String = "第一个"
+    private val TextTv:String = "第二个"
+    private var Age:String? = ""
+    private var Account:String = ""
+    private var jsonarr:JSONArray? = null
+    private var kotlinBean = KotlinBean("")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +29,8 @@ class KotlinActivity:BaseActivity(){
         Test.sayMessage(jsonarr.toString())
         Account = kotlinBean.Account
     }
+
+
 
     fun InitView(){
         Age = "18"

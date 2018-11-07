@@ -1,7 +1,7 @@
-package com.example.hspcadmin.htmlproject.activity.okhttp.network;
+package com.example.hspcadmin.htmlproject.okhttp.network;
 
 
-import com.example.hspcadmin.htmlproject.activity.rxjava.network.ApiRetrofit;
+import com.example.hspcadmin.htmlproject.rxjava.network.ApiRetrofit;
 
 /**
  * http请求地址汇总

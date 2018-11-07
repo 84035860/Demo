@@ -11,9 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hspcadmin.htmlproject.R;
-import com.example.hspcadmin.htmlproject.activity.abstracts.BaseViewActivity;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractViewActivity;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;
-import com.example.hspcadmin.htmlproject.view.AbstractLayout;
 import com.example.hspcadmin.htmlproject.view.ProgressTime;
 
 import butterknife.BindView;
@@ -51,17 +51,13 @@ public class HomeViewUi extends AbstractLayout {
     public HomeViewUi(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        View view = LayoutInflater.from(context).inflate(R.layout.home_layout, this, true);
-        ButterKnife.bind(this, view);
-        init();
     }
 
-    private void init() {
-
-    }
-
-    private void rxjava_submit() {
-
+    @Override
+    public void updataView() {
+        super.updataView();
+        contextView = LayoutInflater.from(context).inflate(R.layout.home_layout, null, true);
+        ButterKnife.bind(this, contextView);
     }
 
     @OnClick({R.id.app_skip, R.id.app_dome1, R.id.app_dome2, R.id.app_dome3,R.id.app_dome4})
@@ -75,10 +71,10 @@ public class HomeViewUi extends AbstractLayout {
                 appSkip.setTextColor(context.getResources().getColor(R.color.colorPrimary));
                 break;
             case R.id.app_dome1:
-                ToolUtils.starIntentBaseView(BaseViewActivity.class, BASEVIEW_RXJAVA);
+                ToolUtils.starIntentBaseView(AbstractViewActivity.class, BASEVIEW_RXJAVA);
                 break;
             case R.id.app_dome2:
-                ToolUtils.starIntentBaseView(BaseViewActivity.class, BASEVIEW_OKHTTP);
+                ToolUtils.starIntentBaseView(AbstractViewActivity.class, BASEVIEW_OKHTTP);
                 break;
             case R.id.app_dome3:
                 Uri data = Uri.parse("yijintong://123");
@@ -93,7 +89,7 @@ public class HomeViewUi extends AbstractLayout {
 //                    startService(intent);
                 break;
             case R.id.app_dome4:
-                ToolUtils.starIntentBaseView(BaseViewActivity.class, BASEVIEW_HOME);
+                ToolUtils.starIntentBaseView(AbstractViewActivity.class, BASEVIEW_HOME);
                 break;
         }
     }

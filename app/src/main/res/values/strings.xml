@@ -12,4 +12,5 @@
     <string name="skin_button_color">skin_button_color</string>
     <string name="skin_back_img">skin_back_img</string>
 
+    <string name="name_str">%</string>
 </resources>

@@ -2,6 +2,9 @@ package com.example.hspcadmin.htmlproject.util
 
 /**
  * Created by hspcadmin on 2018/10/17.
+ *
+ * EventBugs 常量类型区分类
+ *
  */
 data class EventBusUtils(var valstr:String)
 

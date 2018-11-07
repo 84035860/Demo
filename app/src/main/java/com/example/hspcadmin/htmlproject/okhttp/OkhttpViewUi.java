@@ -1,4 +1,4 @@
-package com.example.hspcadmin.htmlproject.activity.okhttp;
+package com.example.hspcadmin.htmlproject.okhttp;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,9 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.hspcadmin.htmlproject.R;
-import com.example.hspcadmin.htmlproject.activity.okhttp.network.HttpManager;
-import com.example.hspcadmin.htmlproject.activity.okhttp.network.ServerAddr;
-import com.example.hspcadmin.htmlproject.view.AbstractLayout;
+import com.example.hspcadmin.htmlproject.okhttp.network.HttpManager;
+import com.example.hspcadmin.htmlproject.okhttp.network.ServerAddr;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 
 import java.util.HashMap;
 

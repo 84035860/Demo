@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 
-import com.example.hspcadmin.htmlproject.view.AbstractLayout;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 import com.example.hspcadmin.htmlproject.view.CustomViewPager;
 
 import java.lang.reflect.Field;

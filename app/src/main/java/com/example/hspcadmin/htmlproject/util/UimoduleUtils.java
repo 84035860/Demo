@@ -3,12 +3,12 @@ package com.example.hspcadmin.htmlproject.util;
 import android.content.Context;
 
 import com.example.hspcadmin.htmlproject.activity.home.HomeViewUi;
-import com.example.hspcadmin.htmlproject.activity.module.ErrorViewUi;
-import com.example.hspcadmin.htmlproject.activity.module.SettingHomeViewUi;
-import com.example.hspcadmin.htmlproject.activity.module.WebViewUi;
-import com.example.hspcadmin.htmlproject.activity.okhttp.OkhttpViewUi;
-import com.example.hspcadmin.htmlproject.activity.rxjava.RxjavaViewUi;
-import com.example.hspcadmin.htmlproject.view.AbstractLayout;
+import com.example.hspcadmin.htmlproject.activity.view.ErrorViewUi;
+import com.example.hspcadmin.htmlproject.activity.view.SettingHomeViewUi;
+import com.example.hspcadmin.htmlproject.activity.view.WebViewUi;
+import com.example.hspcadmin.htmlproject.okhttp.OkhttpViewUi;
+import com.example.hspcadmin.htmlproject.rxjava.RxjavaViewUi;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ import java.util.Map;
  *
  * 调用需要:
  * 1.只获取View UimoduleUtils.getUimoduleUtils().getUiView(UimoduleUtils.BASEVIEW_WEBVIEW, MainHostActivity.this).getAbstractLayout()
- * 2.跳转至Activity ToolUtils.starIntentBaseView(BaseViewActivity.class, BASEVIEW_WEBVIEW);
+ * 2.跳转至Activity ToolUtils.starIntentBaseView(AbstractViewActivity.class, BASEVIEW_WEBVIEW);
  *
  */
 

@@ -21,12 +21,13 @@ import butterknife.ButterKnife;
  * Created by hspcadmin on 2018/10/8.
  */
 
-public class BaseViewActivity extends BaseActivity {
+public class AbstractViewActivity extends BaseActivity {
 
     @BindView(R.id.base_top_tv)
     TopBaseView baseTopTv;
 
     public final static String ClASSNAME = "ClassNAME";
+    public AbstractLayout baseViewUi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +41,11 @@ public class BaseViewActivity extends BaseActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         layoutParams.setMargins(0, ToolUtils.dpToPx(20) + (int) getResources().getDimension(R.dimen.activity_top_height), 0, 0);
 
-        baseTopTv.setText(UimoduleUtils.getUimoduleUtils().getUiView(getIntent().getIntExtra(ClASSNAME, -1),this).getName());
-        addContentView(UimoduleUtils.getUimoduleUtils().getUiView(getIntent().getIntExtra(ClASSNAME, -1),this).getAbstractLayout(), layoutParams);
+        UimoduleUtils.UiBean uiBean = UimoduleUtils.getUimoduleUtils().getUiView(getIntent().getIntExtra(ClASSNAME, -1),this);
+        baseTopTv.setText(uiBean.getName());
+        baseViewUi = uiBean.getAbstractLayout();
+        addContentView(baseViewUi, layoutParams);
+
     }
 
 
@@ -90,5 +94,17 @@ public class BaseViewActivity extends BaseActivity {
 //                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 //            }
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        baseViewUi.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        baseViewUi.onPause();
     }
 }

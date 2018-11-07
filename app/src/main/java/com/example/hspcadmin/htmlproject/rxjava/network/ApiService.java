@@ -1,4 +1,4 @@
-package com.example.hspcadmin.htmlproject.activity.rxjava.network;
+package com.example.hspcadmin.htmlproject.rxjava.network;
 
 
 import java.util.Map;

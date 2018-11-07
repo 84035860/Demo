@@ -1,4 +1,4 @@
-package com.example.hspcadmin.htmlproject.activity.rxjava;
+package com.example.hspcadmin.htmlproject.rxjava;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.hspcadmin.htmlproject.R;
-import com.example.hspcadmin.htmlproject.activity.rxjava.network.ApiRetrofit;
-import com.example.hspcadmin.htmlproject.activity.rxjava.network.DefaultObserver;
-import com.example.hspcadmin.htmlproject.view.AbstractLayout;
+import com.example.hspcadmin.htmlproject.rxjava.network.ApiRetrofit;
+import com.example.hspcadmin.htmlproject.rxjava.network.DefaultObserver;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 
 import java.io.IOException;
 

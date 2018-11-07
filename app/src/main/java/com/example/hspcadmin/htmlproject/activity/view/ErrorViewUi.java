@@ -1,4 +1,4 @@
-package com.example.hspcadmin.htmlproject.activity.module;
+package com.example.hspcadmin.htmlproject.activity.view;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.exception.AppException;
-import com.example.hspcadmin.htmlproject.view.AbstractLayout;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 
 /**
  * Created by hspcadmin on 2018/10/10.
@@ -31,15 +31,15 @@ public class ErrorViewUi extends AbstractLayout{
         errorVeiw.setTextColor(context.getResources().getColor(R.color.yellow));
         errorVeiw.setGravity(Gravity.CENTER);
         errorVeiw.setTextSize(TypedValue.COMPLEX_UNIT_PX,context.getResources().getDimension(R.dimen.font_tv_big));
+        errorVeiw.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        errorVeiw.setText("页面处理错误");
+        errorVeiw.setLayoutParams(new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT));
         if (exception.getSharedPreferencesValue(AppException.SP_THEME).equals("1")) {
             errorVeiw.setBackgroundColor(context.getResources().getColor(R.color.white));
         } else {
             errorVeiw.setBackgroundColor(context.getResources().getColor(R.color.trade_tab));
         }
-        errorVeiw.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        errorVeiw.setText("页面处理错误");
-        errorVeiw.setLayoutParams(new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));
         this.addView(errorVeiw);
         init();
     }
@@ -56,5 +56,15 @@ public class ErrorViewUi extends AbstractLayout{
     @Override
     public void onPause() {
 
+    }
+
+    @Override
+    public void setTheme() {
+        super.setTheme();
+        if (exception.getSharedPreferencesValue(AppException.SP_THEME).equals("1")) {
+            errorVeiw.setBackgroundColor(context.getResources().getColor(R.color.white));
+        } else {
+            errorVeiw.setBackgroundColor(context.getResources().getColor(R.color.trade_tab));
+        }
     }
 }

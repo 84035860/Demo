@@ -1,4 +1,4 @@
-package com.example.hspcadmin.htmlproject.activity.module;
+package com.example.hspcadmin.htmlproject.activity.view;
 
 import android.animation.Animator;
 import android.app.Activity;
@@ -20,7 +20,7 @@ import com.example.hspcadmin.htmlproject.util.EventBusUtils;
 import com.example.hspcadmin.htmlproject.util.EventBusVal;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;
 import com.example.hspcadmin.htmlproject.util.changeskin.ColorUiUtil;
-import com.example.hspcadmin.htmlproject.view.AbstractLayout;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 import com.example.hspcadmin.htmlproject.view.SwitchView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -58,11 +58,6 @@ public class SettingHomeViewUi extends AbstractLayout {
     }
 
     private void init() {
-        if (exception.getSharedPreferencesValue(AppException.SP_THEME).equals("1")) {
-            switchSkin.setState(false);
-        } else {
-            switchSkin.setState(true);
-        }
 
         switchSkin.setOnStateChangedListener(new SwitchView.OnStateChangedListener() {
             @Override
@@ -131,7 +126,11 @@ public class SettingHomeViewUi extends AbstractLayout {
 
     @Override
     public void onResume() {
-
+        if (exception.getSharedPreferencesValue(AppException.SP_THEME).equals("1")) {
+            switchSkin.setState(false);
+        } else {
+            switchSkin.setState(true);
+        }
     }
 
     @Override
