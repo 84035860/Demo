@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 repositories {
     flatDir {
@@ -73,19 +74,21 @@ dependencies {
     compile 'org.jetbrains.anko:anko-support-v4:0.8.3+' // In case you need support-v4 bindings
     compile 'org.jetbrains.anko:anko-appcompat-v7:0.8.3+' // For appcompat-v7 bindings
 
-    compile 'com.jakewharton:butterknife:8.8.1'
-    compile 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile "${cfgs.Butterknife}"
+    compile "${cfgs.Butterkncompiler}"
 
-    compile 'io.reactivex.rxjava2:rxjava:2.0.7'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile "${cfgs.Rxjava}"
+    compile "${cfgs.Rxandroid}"
+    compile "${cfgs.Retrofit}"
+    compile "${cfgs.Rxjava2}"
+    compile "${cfgs.Gson}"
 
-    compile 'org.greenrobot:eventbus:3.0.0'
+    compile "${cfgs.Eventbus}"
+    compile "${cfgs.BaseAdapterHelper}"
 
-    compile 'com.squareup.okhttp3:okhttp:3.5.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+
+    compile "${cfgs.Okhttp}"
+    compile "${cfgs.OkhttpLogging}"
     compile(name: 'hs_dtk_core-release', ext: 'aar')
     compile(name: 'hs_dtk_packet-release', ext: 'aar')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

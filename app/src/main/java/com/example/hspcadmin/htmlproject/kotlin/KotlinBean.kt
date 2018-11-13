@@ -1,6 +1,8 @@
 package com.example.hspcadmin.htmlproject.kotlin
 
+import android.widget.Toast
 import com.example.hspcadmin.htmlproject.activity.view.SettingHomeViewUi
+import com.example.hspcadmin.htmlproject.exception.AppException
 import kotlin.reflect.KClass
 
 /**
@@ -8,13 +10,17 @@ import kotlin.reflect.KClass
  */
 data class KotlinBean(
         //实体类
-        var Account:String
+        var Id:Int,
+        var Account:String,
+        var Time :String,
+        var Check :Boolean,
+        var Submit:Int
 )
 
 object Test{
     //静态类
     fun sayMessage(msg:String){
-        System.out.println("$msg")
+        Toast.makeText(AppException.getInstance().applicationContext,"$msg", Toast.LENGTH_SHORT).show()
         KotlinActivity::class.java
     }
 

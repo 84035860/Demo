@@ -21,7 +21,25 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
+}
+
+ext{
+    cfgs = [
+        BaseAdapterHelper : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.24',
+        Eventbus          : 'org.greenrobot:eventbus:3.0.0',
+        Gson              : 'com.squareup.retrofit2:converter-gson:2.1.0',
+        Rxjava2           : 'com.squareup.retrofit2:adapter-rxjava2:2.2.0',
+
+        Retrofit          : 'com.squareup.retrofit2:retrofit:2.1.0',
+        Rxandroid         : 'io.reactivex.rxjava2:rxandroid:2.0.1',
+        Rxjava            : 'io.reactivex.rxjava2:rxjava:2.0.7',
+        Butterkncompiler  : 'com.jakewharton:butterknife-compiler:8.8.1',
+        Butterknife       : 'com.jakewharton:butterknife:8.8.1',
+        Okhttp            : 'com.squareup.okhttp3:okhttp:3.5.0',
+        OkhttpLogging     : 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    ]
 }
 
 task clean(type: Delete) {
