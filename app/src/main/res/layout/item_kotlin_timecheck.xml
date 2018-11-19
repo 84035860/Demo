@@ -9,7 +9,7 @@
     
     <com.example.hspcadmin.htmlproject.view.CircleImageView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="0.7"
         android:src="@mipmap/tom"/>
 
@@ -22,18 +22,23 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingTop="15dp"
+            android:layout_margin="5dp"
+            android:layout_marginRight="30dp"
             android:paddingBottom="15dp">
 
             <TextView
                 android:id="@+id/item_kotlin_time_text"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/font_color"/>
 
             <TextView
                 android:id="@+id/item_kotlin_time_account"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="?attr/font_color"/>
 
         </LinearLayout>
 

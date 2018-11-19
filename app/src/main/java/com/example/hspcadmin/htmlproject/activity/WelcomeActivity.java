@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.home.MainHostActivity;
 import com.example.hspcadmin.htmlproject.util.UimoduleUtils;
-import com.example.hspcadmin.htmlproject.util.ZipUtils;
+import com.example.hspcadmin.htmlproject.util.CompressedZipUtils;
 
 public class WelcomeActivity extends Activity {
     private TextView welcome_load;
@@ -28,7 +28,7 @@ public class WelcomeActivity extends Activity {
         setContentView(R.layout.welcome_layout);
         welcome_load = (TextView)findViewById(R.id.welcome_load);
 
-        if (ZipUtils.userSDKVersion >= 23 && ContextCompat.checkSelfPermission(WelcomeActivity.this,
+        if (CompressedZipUtils.userSDKVersion >= 23 && ContextCompat.checkSelfPermission(WelcomeActivity.this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {// 请求获取当前权限
             // 权限：读取手机状态、SD卡读写权限、定位权限
             ActivityCompat.requestPermissions(this,
@@ -95,8 +95,8 @@ public class WelcomeActivity extends Activity {
     private void ZipFlie(){
         timeCount = new TimeCount(3000);
         timeCount.start();
-//        ZipUtils.copyDbFile(this,"APP_HOME.zip");
-//        ZipUtils.Zipjy(this);
+//        CompressedZipUtils.copyDbFile(this,"APP_HOME.zip");
+//        CompressedZipUtils.Zipjy(this);
     }
 
 }

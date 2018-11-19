@@ -38,7 +38,9 @@ ext{
         Butterkncompiler  : 'com.jakewharton:butterknife-compiler:8.8.1',
         Butterknife       : 'com.jakewharton:butterknife:8.8.1',
         Okhttp            : 'com.squareup.okhttp3:okhttp:3.5.0',
-        OkhttpLogging     : 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+        OkhttpLogging     : 'com.squareup.okhttp3:logging-interceptor:3.6.0',
+        SmartRefreshLayout: 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-5',
+        SmartRefreshHeader: 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-5'
     ]
 }
 

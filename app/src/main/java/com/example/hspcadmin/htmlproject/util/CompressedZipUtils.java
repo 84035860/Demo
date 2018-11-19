@@ -25,7 +25,7 @@ import java.util.zip.ZipOutputStream;
  * 工具类
  *
  */
-public class ZipUtils {
+public class CompressedZipUtils {
     /**
      * 获取当前系统版本号
      */

@@ -18,8 +18,8 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.example.hspcadmin.htmlproject.R;
+import com.example.hspcadmin.htmlproject.util.CompressedZipUtils;
 import com.example.hspcadmin.htmlproject.util.permission.PermissionGen;
-import com.example.hspcadmin.htmlproject.util.ZipUtils;
 
 /**
  * Created by wzheng on 2018/6/21.
@@ -38,14 +38,14 @@ public class WebViewActivity extends Activity{
         myWebView  = (WebView)findViewById(R.id.html_webview);
         html_title = (TextView)findViewById(R.id.html_title);
 //        weburl = "http://tzyjdev.hsmdb.com/hq3/?code=sh.600570&type=stock";
-        weburl = "file://"+ ZipUtils.saveFiles()+"/AppHome/APPHOME/index.html";
+        weburl = "file://"+ CompressedZipUtils.saveFiles()+"/AppHome/APPHOME/index.html";
         initUrl();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (ZipUtils.userSDKVersion >= 23 && ContextCompat.checkSelfPermission(WebViewActivity.this,
+        if (CompressedZipUtils.userSDKVersion >= 23 && ContextCompat.checkSelfPermission(WebViewActivity.this,
                 android.Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {// 请求获取当前权限
             // 权限：读取手机状态、SD卡读写权限、定位权限
             PermissionGen.needPermission(WebViewActivity.this, 100, new String[]{android.Manifest.permission.READ_PHONE_STATE,
