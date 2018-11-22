@@ -94,7 +94,7 @@
             android:launchMode="standard"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain"/>
-        <activity android:name=".activity.abstracts.AbstractViewActivity"
+        <activity android:name=".activity.abstracts.AbstractActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="standard"
             android:screenOrientation="portrait"

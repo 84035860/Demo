@@ -11,18 +11,11 @@
         android:layout_height="match_parent"
         >
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="250dp">
-            <include
-                layout="@layout/kotlinadd_timedata_layout"/>
-            <View
-                android:layout_width="3dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="27dp"
-                android:background="?attr/font_color"
-                />
-        </FrameLayout>
+        <com.example.hspcadmin.htmlproject.view.KotlinRefreshHeader
+            android:id="@+id/refresh_header"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -34,24 +27,10 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="15dp"/>
-            <LinearLayout
-                android:layout_width="7dp"
-                android:layout_height="120dp"
-                android:layout_marginLeft="25dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="114dp"
-                    android:background="?attr/font_color"
-                    />
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="6dp"
-                    android:background="?attr/font_color"/>
-            </LinearLayout>
         </FrameLayout>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
 
 </LinearLayout>

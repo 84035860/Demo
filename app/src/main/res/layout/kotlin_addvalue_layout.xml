@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="match_parent"
+    android:background="?attr/bg_color">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,6 +32,7 @@
             android:padding="15dp"
             android:textSize="15sp"
             android:gravity="top"
+            android:focusable="true"
             android:textColor="?attr/font_color"
             android:background="@drawable/trade_bd_edit"
             android:hint="来给自己设置一个计划吧"/>

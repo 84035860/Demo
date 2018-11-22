@@ -23,7 +23,7 @@ import java.util.Map;
  *
  * 调用需要:
  * 1.只获取View UimoduleUtils.getUimoduleUtils().getUiView(UimoduleUtils.BASEVIEW_WEBVIEW, MainHostActivity.this).getAbstractLayout()
- * 2.跳转至Activity ToolUtils.starIntentBaseView(AbstractViewActivity.class, BASEVIEW_WEBVIEW);
+ * 2.跳转至Activity ToolUtils.starIntentBaseView(AbstractActivity.class, BASEVIEW_WEBVIEW);
  *
  */
 

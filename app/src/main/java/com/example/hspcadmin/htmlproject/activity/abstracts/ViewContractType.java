@@ -2,14 +2,18 @@ package com.example.hspcadmin.htmlproject.activity.abstracts;
 
 import android.view.View;
 
+import com.example.hspcadmin.htmlproject.activity.presenter.AbstractPresenter;
+
 /**
  * Created by hspcadmin on 2018/11/5.
  */
 
 public interface ViewContractType {
 
-    interface ViewCont{
-        void addView(View view);
+    interface ViewAction{
+        void initView(View view);
+        void initViewid(int viewid);
+        void setAction();
     }
 
     interface ViewType{
@@ -20,6 +24,6 @@ public interface ViewContractType {
 
         void exitView();
 
-        void updataView();
+        void updataView(AbstractPresenter viewAction);
     }
 }

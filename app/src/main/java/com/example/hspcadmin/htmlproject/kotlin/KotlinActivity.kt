@@ -34,7 +34,7 @@ class KotlinActivity:BaseActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.kotlin_layout)
         InitView()
-        InitView(TextTv)
+        InitData(TextTv)
         TextTvstr = InitData()
     }
 
@@ -49,7 +49,7 @@ class KotlinActivity:BaseActivity(){
         kotlin_recycler.adapter = mAdapter
     }
 
-    fun InitView(str:String){
+    fun InitData(str:String){
 //        if(ToolUtils.isNull(SharedPUtils.getKolinJsonVar())){
             jsonarr  = JSONArray(
                     "[{id = 0,account = \"吃饭饭\",time=\"2018年11月13日16:55:23\",check = false}," +

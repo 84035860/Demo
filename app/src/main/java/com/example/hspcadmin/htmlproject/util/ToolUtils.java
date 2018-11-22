@@ -1,9 +1,10 @@
 package com.example.hspcadmin.htmlproject.util;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 
-import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractViewActivity;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractActivity;
 import com.example.hspcadmin.htmlproject.exception.AppException;
 
 /**
@@ -47,7 +48,7 @@ public class ToolUtils {
             return;
         }
         Intent intent = new Intent(AppException.getInstance().getApplicationContext(),s);
-        intent.putExtra(AbstractViewActivity.ClASSNAME,ClassName);
+        intent.putExtra(AbstractActivity.ClASSNAME,ClassName);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
         AppException.getInstance().getApplicationContext().startActivity(intent);
     }
@@ -75,5 +76,18 @@ public class ToolUtils {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 屏幕高度
+     * */
+    public static int getHeight(Context context){
+        return context.getResources().getDisplayMetrics().heightPixels;
+    }
+    /**
+     * 屏幕宽度
+     * */
+    public static int  getWidth(Context context){
+        return context.getResources().getDisplayMetrics().widthPixels;
     }
 }

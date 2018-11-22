@@ -11,8 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hspcadmin.htmlproject.R;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractActivity;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
-import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractViewActivity;
+import com.example.hspcadmin.htmlproject.activity.presenter.AbstractPresenter;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;
 import com.example.hspcadmin.htmlproject.view.ProgressTime;
 
@@ -54,8 +55,8 @@ public class HomeViewUi extends AbstractLayout {
     }
 
     @Override
-    public void updataView() {
-        super.updataView();
+    public void updataView(AbstractPresenter viewAction) {
+        super.updataView(viewAction);
         contextView = LayoutInflater.from(context).inflate(R.layout.home_layout, null, true);
         ButterKnife.bind(this, contextView);
     }
@@ -71,10 +72,10 @@ public class HomeViewUi extends AbstractLayout {
                 appSkip.setTextColor(context.getResources().getColor(R.color.colorPrimary));
                 break;
             case R.id.app_dome1:
-                ToolUtils.starIntentBaseView(AbstractViewActivity.class, BASEVIEW_RXJAVA);
+                ToolUtils.starIntentBaseView(AbstractActivity.class, BASEVIEW_RXJAVA);
                 break;
             case R.id.app_dome2:
-                ToolUtils.starIntentBaseView(AbstractViewActivity.class, BASEVIEW_OKHTTP);
+                ToolUtils.starIntentBaseView(AbstractActivity.class, BASEVIEW_OKHTTP);
                 break;
             case R.id.app_dome3:
                 Uri data = Uri.parse("yijintong://123");
@@ -89,7 +90,7 @@ public class HomeViewUi extends AbstractLayout {
 //                    startService(intent);
                 break;
             case R.id.app_dome4:
-                ToolUtils.starIntentBaseView(AbstractViewActivity.class, BASEVIEW_HOME);
+                ToolUtils.starIntentBaseView(AbstractActivity.class, BASEVIEW_HOME);
                 break;
         }
     }

@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
  * Created by hspcadmin on 2018/10/8.
  */
 
-public class AbstractViewActivity extends BaseActivity {
+public class AbstractActivity extends BaseActivity {
 
     @BindView(R.id.base_top_tv)
     TopBaseView baseTopTv;

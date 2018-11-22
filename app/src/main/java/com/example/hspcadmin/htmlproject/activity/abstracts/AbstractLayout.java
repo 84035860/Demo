@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by hspcadmin on 2018/10/10.
  */
-public abstract class AbstractLayout <T extends ViewContractType.ViewType> extends FrameLayout implements ColorUiInterface,ViewContractType.ViewType{
+public abstract class AbstractLayout <T extends ViewContractType.ViewAction> extends FrameLayout implements ColorUiInterface,ViewContractType.ViewType{
     public AppException exception;
     public String skin_bg_color;
     public String skin_font_color;
@@ -33,6 +33,7 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewType> exten
     public Context context;
     private T viewContract;
     public View contextView;
+    private TextView textView;
 
     public AbstractLayout(Context context) {
         super(context);
@@ -49,7 +50,11 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewType> exten
         skin_title_color = context.getResources().getString(R.string.skin_title_color);
         skin_button_color = context.getResources().getString(R.string.skin_button_color);
         skin_back_img = context.getResources().getString(R.string.skin_back_img);
-        new AbstractPresenter(this);
+        textView =  new TextView(context);
+        textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
+        textView.setGravity(Gravity.CENTER);
+        initView();
     }
 
     public abstract void onResume();
@@ -59,30 +64,29 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewType> exten
     @Override
     public void initView() {
         this.removeAllViews();
-        TextView textView =  new TextView(context);
-        textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT));
-        textView.setGravity(Gravity.CENTER);
         textView.setText("加载中");
         this.addView(textView);
     }
 
     @Override
-    public void updataView() {
+    public void updataView(AbstractPresenter viewAction) {
+        this.removeAllViews();
+        this.addView(contextView);
+        viewAction.initView(contextView);
+        viewAction.setAction();
     }
 
     @Override
     public void errorView() {
         this.removeAllViews();
-        this.addView(contextView);
+        textView.setText("页面加载错误");
+        this.addView(textView);
     }
 
     @Override
     public void exitView() {
         this.removeAllViews();
-        this.addView(contextView);
     }
-
 
     @Override
     public View getView() {
@@ -169,7 +173,7 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewType> exten
             }catch (Exception e){}
         }
 
-        List<View> allchildren = new ArrayList<View>();
+        List<View> allchildren = new ArrayList<>();
         if (view instanceof ViewGroup) {
             ViewGroup vp = (ViewGroup) view;
             for (int i = 0; i < vp.getChildCount(); i++) {
@@ -181,4 +185,5 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewType> exten
         }
         return allchildren;
     }
+
 }

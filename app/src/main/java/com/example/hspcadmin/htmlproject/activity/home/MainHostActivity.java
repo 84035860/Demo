@@ -15,14 +15,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.hspcadmin.htmlproject.R;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractActivity;
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 import com.example.hspcadmin.htmlproject.activity.abstracts.BaseActivity;
-import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractViewActivity;
 import com.example.hspcadmin.htmlproject.util.EventBusUtils;
 import com.example.hspcadmin.htmlproject.util.EventBusVal;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;
 import com.example.hspcadmin.htmlproject.util.UimoduleUtils;
 import com.example.hspcadmin.htmlproject.util.changeskin.ColorUiUtil;
-import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 import com.example.hspcadmin.htmlproject.view.BottomNavigationBar;
 import com.example.hspcadmin.htmlproject.view.CustomViewPager;
 
@@ -91,7 +91,7 @@ public class MainHostActivity extends BaseActivity {
     public void onViewClicked(View v) {
         switch (v.getId()){
             case R.id.main_setting:
-                ToolUtils.starIntentBaseView(AbstractViewActivity.class, UimoduleUtils.BASEVIEW_HOME_SETTING);
+                ToolUtils.starIntentBaseView(AbstractActivity.class, UimoduleUtils.BASEVIEW_HOME_SETTING);
                 break;
         }
     }
