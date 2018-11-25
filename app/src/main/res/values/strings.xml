@@ -13,4 +13,10 @@
     <string name="skin_back_img">skin_back_img</string>
 
     <string name="name_str">%</string>
+
+    <string name="home_bottom_1">1</string>
+    <string name="home_bottom_2">2</string>
+    <string name="home_bottom_3">3</string>
+    <string name="home_bottom_4">4</string>
+    <string name="home_bottom_5">5</string>
 </resources>

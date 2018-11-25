@@ -30,7 +30,6 @@ object SharedPUtils{
      */
 
     fun getKolinJsonVar():String{
-
         return sp.getString(KolinJson,"")
     }
 }

@@ -28,7 +28,7 @@
                 android:id="@+id/tv_radio_1"
                 style="@style/main_radio_button"
                 android:drawableTop="@mipmap/home_icon_false"
-                android:text="首页" />
+                android:text="@string/home_bottom_1" />
 
         </RelativeLayout>
 
@@ -44,7 +44,7 @@
                 style="@style/main_radio_button"
                 android:drawableTop="@mipmap/home_icon_false"
                 android:enabled="false"
-                android:text="行情" />
+                android:text="@string/home_bottom_2" />
 
         </RelativeLayout>
 
@@ -60,7 +60,7 @@
                 style="@style/main_radio_button"
                 android:drawableTop="@mipmap/home_icon_false"
                 android:enabled="false"
-                android:text="交易" />
+                android:text="@string/home_bottom_3" />
 
         </RelativeLayout>
 
@@ -76,7 +76,7 @@
                 style="@style/main_radio_button"
                 android:drawableTop="@mipmap/home_icon_false"
                 android:enabled="false"
-                android:text="资讯" />
+                android:text="@string/home_bottom_4" />
 
         </RelativeLayout>
 
@@ -92,7 +92,7 @@
                 style="@style/main_radio_button"
                 android:drawableTop="@mipmap/home_icon_false"
                 android:enabled="false"
-                android:text="我的" />
+                android:text="@string/home_bottom_5" />
 
         </RelativeLayout>
     </LinearLayout>

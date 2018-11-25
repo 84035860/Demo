@@ -29,11 +29,11 @@ import java.util.Map;
 
 public class UimoduleUtils {
 //    public final static int BASEVIEW_ERROR = -1;
-    public final static int BASEVIEW_RXJAVA = 0;
-    public final static int BASEVIEW_OKHTTP = 1;
-    public final static int BASEVIEW_HOME_SETTING = 2;
-    public final static int BASEVIEW_WEBVIEW = 3;
-    public final static int BASEVIEW_HOME = 4;
+    public final static int BASEVIEW_RXJAVA = 0;//Rxjava
+    public final static int BASEVIEW_OKHTTP = 1;//Okhttp
+    public final static int BASEVIEW_HOME_SETTING = 2;//设置界面
+    public final static int BASEVIEW_WEBVIEW = 3;//网页
+    public final static int BASEVIEW_HOME = 4;//首页
 
 
     private Map<Integer,UiBean> uiView = new HashMap<>();

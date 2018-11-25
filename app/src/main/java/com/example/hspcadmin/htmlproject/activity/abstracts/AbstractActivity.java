@@ -39,7 +39,7 @@ public class AbstractActivity extends BaseActivity {
         ButterKnife.bind(this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        layoutParams.setMargins(0, ToolUtils.dpToPx(20) + (int) getResources().getDimension(R.dimen.activity_top_height), 0, 0);
+//        layoutParams.setMargins(0, ToolUtils.dpToPx(20) + (int) getResources().getDimension(R.dimen.activity_top_height), 0, 0);
 
         UimoduleUtils.UiBean uiBean = UimoduleUtils.getUimoduleUtils().getUiView(getIntent().getIntExtra(ClASSNAME, -1),this);
         baseTopTv.setText(uiBean.getName());

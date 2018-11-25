@@ -5,4 +5,28 @@
     <dimen name="font_super_smallest">10sp</dimen>
     <dimen name="font_tv_big">18sp</dimen>
     <dimen name="activity_top_height">45dp</dimen>
+    <dimen name="marring_15">15dp</dimen>
+
+    <dimen name="text_size_1">22sp</dimen>
+    <dimen name="text_size_2">22sp</dimen>
+    <dimen name="text_size_3">22sp</dimen>
+    <dimen name="text_size_4">22sp</dimen>
+    <dimen name="text_size_5">22sp</dimen>
+    <dimen name="text_size_6">22sp</dimen>
+    <dimen name="text_size_7">22sp</dimen>
+    <dimen name="text_size_8">22sp</dimen>
+    <dimen name="text_size_9">22sp</dimen>
+    <dimen name="text_size_10">22sp</dimen>
+    <dimen name="text_size_11">22sp</dimen>
+    <dimen name="text_size_12">22sp</dimen>
+    <dimen name="text_size_13">22sp</dimen>
+    <dimen name="text_size_14">22sp</dimen>
+    <dimen name="text_size_15">22sp</dimen>
+    <dimen name="text_size_16">22sp</dimen>
+    <dimen name="text_size_17">22sp</dimen>
+    <dimen name="text_size_18">22sp</dimen>
+    <dimen name="text_size_19">22sp</dimen>
+    <dimen name="text_size_20">22sp</dimen>
+    <dimen name="text_size_21">22sp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
 </resources>

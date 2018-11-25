@@ -23,11 +23,11 @@ import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
  * Created by wzheng on 2018/6/28.
  */
 
-public class KotlinRefreshHeader extends AbstractLayout<AbstractPresenter> implements RefreshHeader {
+public class KotlinRefreshHeader extends AbstractLayout<AbstractPresenter> implements RefreshHeader{
     private Context mContext;
     //中心点
     private int Movin_Top = 0;     //图片离顶部高度
-    private int Finishint = 1000;
+    private int Finishint = 0;
     private KotlinAddPopWindow popWindow;
 
     public KotlinRefreshHeader(Context context) {
@@ -102,8 +102,8 @@ public class KotlinRefreshHeader extends AbstractLayout<AbstractPresenter> imple
     /*移动 (boolean b, float v, int 移动高度, int 总高度, int 屏幕高度)*/
     @Override
     public void onMoving(boolean b, float v, int i, int height, int i2) {
+//        Finishint = Integer.MAX_VALUE;
         if(i>=height){
-            Finishint = Integer.MAX_VALUE;
             if(!popWindow.get_show()){
                 popWindow.show_();
             }

@@ -55,6 +55,14 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewAction> ext
                 ViewGroup.LayoutParams.MATCH_PARENT));
         textView.setGravity(Gravity.CENTER);
         initView();
+        //设置日间夜间模式,用来换肤
+        if (exception.getSharedPreferencesValue(AppException.SP_THEME).equals("1")) {
+            //白天模式
+            this.setBackgroundColor(getContext().getResources().getColor(R.color.white));
+        } else {
+            //夜间模式
+            this.setBackgroundColor(getContext().getResources().getColor(R.color.trade_tab));
+        }
     }
 
     public abstract void onResume();

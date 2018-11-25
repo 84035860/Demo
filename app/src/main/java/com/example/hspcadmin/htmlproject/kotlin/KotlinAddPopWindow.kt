@@ -10,7 +10,9 @@ import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.PopupWindow
+import android.widget.TextView
 import com.example.hspcadmin.htmlproject.R
 import com.example.hspcadmin.htmlproject.util.ToolUtils
 
@@ -23,6 +25,11 @@ class KotlinAddPopWindow(mContext: Context) :PopupWindow(){
 
     private var mView: View? = null
     private var mContext:Context? = mContext
+    private var isshowimm:Boolean = false
+
+    interface KotlinAddpopFace{
+        fun Submit(bean: KotlinBean)
+    }
 
     fun initView():KotlinAddPopWindow{
         mView = LayoutInflater.from(mContext).inflate(R.layout.kotlin_addvalue_layout,null)
@@ -31,7 +38,23 @@ class KotlinAddPopWindow(mContext: Context) :PopupWindow(){
             view: View? ->
             val imm = mContext!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             view!!.requestFocus()
-            imm.showSoftInput(view!!,0)
+            if (isshowimm){
+                imm.hideSoftInputFromWindow(view!!.windowToken,0)
+            }else{
+                imm.showSoftInput(view!!,0)
+            }
+            isshowimm = !isshowimm
+        })
+        contentView.findViewById<ImageView>(R.id.next_img).setOnClickListener(View.OnClickListener {
+            if(!ToolUtils.isFastClick()&&mContext is KotlinAddpopFace){
+                    (mContext as KotlinAddpopFace).Submit(KotlinBean(
+                            -1,
+                            contentView.findViewById<EditText>(R.id.add_timedata_edit).text.toString(),
+                            contentView.findViewById<TextView>(R.id.add_timedata_time).text.toString(),
+                            false
+                    ))
+                    dismiss_()
+            }
         })
         this.width = ToolUtils.getWidth(mContext)
         // 设置SelectPicPopupWindow弹出窗体的高
@@ -45,6 +68,8 @@ class KotlinAddPopWindow(mContext: Context) :PopupWindow(){
         //软键盘不会挡着popupwindow
         setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         fitPopupWindowOverStatusBar(true)
+
+
         return this
     }
 
@@ -66,8 +91,6 @@ class KotlinAddPopWindow(mContext: Context) :PopupWindow(){
                 val mLayoutInScreen = PopupWindow::class.java.getDeclaredField("mLayoutInScreen")
                 mLayoutInScreen.isAccessible = true
                 mLayoutInScreen.set(this, needFullScreen)
-            } catch (e: NoSuchFieldException) {
-                e.printStackTrace()
             } catch (e: IllegalAccessException) {
                 e.printStackTrace()
             }

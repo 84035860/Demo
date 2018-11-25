@@ -6,8 +6,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.example.hspcadmin.htmlproject.R
 import com.example.hspcadmin.htmlproject.util.SharedPUtils
+import com.example.hspcadmin.htmlproject.util.ToolUtils
 import kotlinx.android.synthetic.main.item_kotlin_timecheck.view.*
 import org.json.JSONArray
+import org.json.JSONObject
 
 /**
  * Created by hspcadmin on 2018/11/13.
@@ -20,7 +22,7 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
             helper.itemView.item_kotlin_time_account.text = item.Account
             helper.itemView.item_kotlin_close.setOnClickListener({
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    settingVar(item.Id)
+                    removeVar(item.Id)
                 }
             })
         }
@@ -32,7 +34,7 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
      * @author wzheng
      * @param id : 匹配本地数据id
      * */
-    fun settingVar(id:Int){
+    fun removeVar(id:Int){
         var jsonarr = JSONArray(SharedPUtils.getKolinJsonVar())
         for (index in 0 until jsonarr.length()){
             if(jsonarr.getJSONObject(index).getInt("id")==id){
@@ -51,6 +53,31 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
                 break
             }
         }
+    }
+
+    /**
+     * @account 增加列表数据
+     * @author wzheng
+     * @param id : 匹配本地数据id  因为是数据显示倒序 index最后一条的数据  id总是最高
+     * */
+    fun insertVar(bean: KotlinBean){
+        var jsonarr = JSONArray(SharedPUtils.getKolinJsonVar())
+        var id:Int = 0
+        try {
+            if(!ToolUtils.isNull(jsonarr.getJSONObject(jsonarr.length()-1).optString("id"))){
+                id =  jsonarr.getJSONObject(jsonarr.length()-1).optString("id").toInt()
+                id++
+            }
+        } catch (e: Exception) { }
+        var jsonobj = JSONObject()
+        jsonobj.put("id",id)
+        jsonobj.put("account",bean.Account)
+        jsonobj.put("time",bean.Time)
+        jsonobj.put("check",bean.Check)
+        jsonarr.put(jsonobj)
+        SharedPUtils.setKolinJsonVar(jsonarr.toString())
+        data.add(0,bean)
+        notifyItemInserted(0)
     }
 
 }

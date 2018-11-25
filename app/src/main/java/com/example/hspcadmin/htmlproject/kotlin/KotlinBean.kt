@@ -13,8 +13,7 @@ data class KotlinBean(
         var Id:Int,
         var Account:String,
         var Time :String,
-        var Check :Boolean,
-        var Submit:Int
+        var Check :Boolean
 )
 
 object Test{
