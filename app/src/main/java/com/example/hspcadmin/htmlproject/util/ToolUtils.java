@@ -7,6 +7,11 @@ import android.content.res.Resources;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractActivity;
 import com.example.hspcadmin.htmlproject.exception.AppException;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by hspcadmin on 2018/10/8.
  */
@@ -48,7 +53,7 @@ public class ToolUtils {
             return;
         }
         Intent intent = new Intent(AppException.getInstance().getApplicationContext(),s);
-        intent.putExtra(AbstractActivity.ClASSNAME,ClassName);
+        intent.putExtra(AbstractActivity.ClASS_NAME,ClassName);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
         AppException.getInstance().getApplicationContext().startActivity(intent);
     }
@@ -90,4 +95,47 @@ public class ToolUtils {
     public static int  getWidth(Context context){
         return context.getResources().getDisplayMetrics().widthPixels;
     }
+
+
+    /**
+     * 格式化时间
+     *eg:yyyy-MM-dd HH:mm:ss
+     * @param oldFormat:原格式
+     * @param newFormat:转换后的新格式
+     * @param dateStr:需要转换的字符串
+     * @return:转换格式后的字符串
+     */
+    public static String changeDateFormat(String oldFormat, String newFormat, String dateStr) {
+        SimpleDateFormat sdf1 = new SimpleDateFormat(oldFormat, Locale.getDefault());
+        SimpleDateFormat sdf2 = new SimpleDateFormat(newFormat, Locale.getDefault());
+        try {
+            return sdf2.format(sdf1.parse(dateStr));
+        } catch (Exception e) {
+            return dateStr;
+        }
+    }
+
+    /**
+     * 将yyyy-MM-dd格式字符串转换为时间
+     *
+     * @param strDate
+     * @return
+     */
+    public static Date strToDate(String strDate) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日", Locale.getDefault());
+        ParsePosition pos = new ParsePosition(0);
+        return formatter.parse(strDate, pos);
+    }
+    /**
+     * 将HH:mm:ss格式字符串转换为时间
+     *
+     * @param strDate
+     * @return
+     */
+    public static Date strToTime(String strDate){
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        ParsePosition pos = new ParsePosition(0);
+        return formatter.parse(strDate, pos);
+    }
+
 }

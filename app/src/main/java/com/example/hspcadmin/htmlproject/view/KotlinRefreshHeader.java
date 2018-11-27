@@ -12,7 +12,7 @@ import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 import com.example.hspcadmin.htmlproject.activity.presenter.AbstractPresenter;
 import com.example.hspcadmin.htmlproject.activity.presenter.Presenter;
-import com.example.hspcadmin.htmlproject.kotlin.KotlinAddPopWindow;
+import com.example.hspcadmin.htmlproject.kotlin.KotlinaddpopWindow;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshKernel;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -28,7 +28,7 @@ public class KotlinRefreshHeader extends AbstractLayout<AbstractPresenter> imple
     //中心点
     private int Movin_Top = 0;     //图片离顶部高度
     private int Finishint = 0;
-    private KotlinAddPopWindow popWindow;
+    public KotlinaddpopWindow popWindow;
 
     public KotlinRefreshHeader(Context context) {
         super(context);
@@ -56,7 +56,7 @@ public class KotlinRefreshHeader extends AbstractLayout<AbstractPresenter> imple
         contextView = LayoutInflater.from(mContext).inflate(R.layout.kotlin_addvalue_layout,null);
         contextView.findViewById(R.id.add_timedata_edit).setFocusable(false);
         updataView(new Presenter());
-        popWindow = new KotlinAddPopWindow(mContext).initView();
+        popWindow = new KotlinaddpopWindow(mContext).initView();
         popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {

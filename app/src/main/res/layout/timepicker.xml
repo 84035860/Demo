@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="?attr/bg_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?attr/line_color">
+
+        <LinearLayout
+            android:id="@+id/time_picker_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/time_picker_one"
+                android:layout_width="54dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/wheel_picker_button"
+                android:gravity="center"
+                android:text="一个月"
+                android:textColor="?attr/font_color"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/time_picker_two"
+                android:layout_width="54dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/wheel_picker_button"
+                android:gravity="center"
+                android:text="二个月"
+                android:textColor="?attr/font_color"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/time_picker_thr"
+                android:layout_width="54dp"
+                android:layout_height="24dp"
+                android:background="@drawable/wheel_picker_button"
+                android:gravity="center"
+                android:text="三个月"
+                android:textColor="?attr/font_color"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_quxiao"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="?attr/font_color"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/text_queding"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="?attr/font_color"
+            android:textSize="@dimen/text_size_14" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/timePicker1"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp">
+
+        <com.example.hspcadmin.htmlproject.view.datepicker.WheelView
+            android:id="@+id/year"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.example.hspcadmin.htmlproject.view.datepicker.WheelView
+            android:id="@+id/month"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.example.hspcadmin.htmlproject.view.datepicker.WheelView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.example.hspcadmin.htmlproject.view.datepicker.WheelView
+            android:id="@+id/hour"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.example.hspcadmin.htmlproject.view.datepicker.WheelView
+            android:id="@+id/min"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.example.hspcadmin.htmlproject.view.datepicker.WheelView
+            android:id="@+id/sss"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

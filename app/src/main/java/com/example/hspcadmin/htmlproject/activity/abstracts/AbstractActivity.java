@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.abstracts.swipeback.SwipeBackHelper;
 import com.example.hspcadmin.htmlproject.activity.abstracts.swipeback.SwipeListener;
-import com.example.hspcadmin.htmlproject.util.ToolUtils;
 import com.example.hspcadmin.htmlproject.util.UimoduleUtils;
 import com.example.hspcadmin.htmlproject.view.TopBaseView;
 
@@ -26,7 +25,7 @@ public class AbstractActivity extends BaseActivity {
     @BindView(R.id.base_top_tv)
     TopBaseView baseTopTv;
 
-    public final static String ClASSNAME = "ClassNAME";
+    public final static String ClASS_NAME = "ClassName";
     public AbstractLayout baseViewUi;
 
     @Override
@@ -41,7 +40,7 @@ public class AbstractActivity extends BaseActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 //        layoutParams.setMargins(0, ToolUtils.dpToPx(20) + (int) getResources().getDimension(R.dimen.activity_top_height), 0, 0);
 
-        UimoduleUtils.UiBean uiBean = UimoduleUtils.getUimoduleUtils().getUiView(getIntent().getIntExtra(ClASSNAME, -1),this);
+        UimoduleUtils.UiBean uiBean = UimoduleUtils.getUimoduleUtils().getUiView(getIntent().getIntExtra(ClASS_NAME, -1),this);
         baseTopTv.setText(uiBean.getName());
         baseViewUi = uiBean.getAbstractLayout();
         addContentView(baseViewUi, layoutParams);

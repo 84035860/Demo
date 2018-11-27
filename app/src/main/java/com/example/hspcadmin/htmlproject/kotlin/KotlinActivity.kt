@@ -5,11 +5,12 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.hspcadmin.htmlproject.R
-import com.example.hspcadmin.htmlproject.activity.abstracts.BaseActivity
+import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractActivity
 import com.example.hspcadmin.htmlproject.util.SharedPUtils
 import com.example.hspcadmin.htmlproject.util.ToolUtils
-import com.google.gson.JsonObject
+import com.example.hspcadmin.htmlproject.view.KotlinRefreshHeader
 import kotlinx.android.synthetic.main.kotlin_layout.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -21,7 +22,7 @@ import java.util.*
 
 const val baseName:String = "kotlin"//const 编译期
 
-class KotlinActivity:BaseActivity(),KotlinAddPopWindow.KotlinAddpopFace{
+class KotlinActivity:AbstractActivity(),KotlinaddpopWindow.KotlinAddpopFace{
 
     private var TextTvstr:String = "第一个"
     private val TextTv:String = "第二个"
@@ -30,6 +31,7 @@ class KotlinActivity:BaseActivity(),KotlinAddPopWindow.KotlinAddpopFace{
     private val kotlinBeans = ArrayList<KotlinBean>()
     private val fragments = arrayOfNulls<String>(1)
     private var mAdapter: KotlinRecyclerAdapter? = null
+    private var kotlinHead: KotlinRefreshHeader? = null
 
     /**
      * @author 王政
@@ -52,13 +54,19 @@ class KotlinActivity:BaseActivity(),KotlinAddPopWindow.KotlinAddpopFace{
         //添加动画
         kotlin_recycler.itemAnimator = DefaultItemAnimator()
         kotlin_recycler.adapter = mAdapter
+        kotlinHead = KotlinRefreshHeader(this)
+        refreshLayout.setRefreshHeader(kotlinHead!!)
+        refreshLayout.setHeaderHeight(220f)
+        mAdapter!!.setOnItemClickListener(BaseQuickAdapter.OnItemClickListener { baseQuickAdapter, view, i ->
+            kotlinHead!!.popWindow.show_(kotlinBeans.get(i))
+        })
     }
 
     fun InitData(str:String){
         if(ToolUtils.isNull(SharedPUtils.getKolinJsonVar())){
             jsonarr  = JSONArray(
-                    "[{id = 0,account = \"吃饭饭\",time=\"2018年11月13日16:55:23\",check = false}," +
-                            "{id = 1,account = \"值班\",time=\"2018年12月01日16:55:23\",check = false}]")
+                    "[{id = 0,account = \"吃饭饭\",time=\"2018年11月13日 16:55:23\",check = false}," +
+                            "{id = 1,account = \"值班\",time=\"2018年12月01日 16:55:23\",check = false}]")
             SharedPUtils.setKolinJsonVar(jsonarr.toString())
         }else{
             jsonarr = JSONArray(SharedPUtils.getKolinJsonVar())
@@ -88,6 +96,12 @@ class KotlinActivity:BaseActivity(),KotlinAddPopWindow.KotlinAddpopFace{
     }
 
     override fun Submit(bean: KotlinBean) {
-        mAdapter!!.insertVar(bean)
+        if(bean.Id!=-1){
+            mAdapter!!.updateVar(bean)
+        }else{
+            mAdapter!!.insertVar(bean)
+            kotlin_recycler.scrollToPosition(0)
+        }
     }
 }
+

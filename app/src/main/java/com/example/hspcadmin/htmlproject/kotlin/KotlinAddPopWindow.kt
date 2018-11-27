@@ -14,27 +14,39 @@ import android.widget.ImageView
 import android.widget.PopupWindow
 import android.widget.TextView
 import com.example.hspcadmin.htmlproject.R
+import com.example.hspcadmin.htmlproject.util.ToastUtil
 import com.example.hspcadmin.htmlproject.util.ToolUtils
-
+import com.example.hspcadmin.htmlproject.view.datepicker.WheelMain
 
 
 /**
  * Created by hspcadmin on 2018/11/22.
  */
-class KotlinAddPopWindow(mContext: Context) :PopupWindow(){
+class KotlinaddpopWindow(mContext: Context) :PopupWindow(){
 
     private var mView: View? = null
     private var mContext:Context? = mContext
     private var isshowimm:Boolean = false
+    private var wheelMain: WheelMain? = null
+    private var data_edit:EditText?=null
+    private var data_date:TextView?=null
+    private var data_time:TextView?=null
 
     interface KotlinAddpopFace{
         fun Submit(bean: KotlinBean)
     }
 
-    fun initView():KotlinAddPopWindow{
+    fun initView():KotlinaddpopWindow{
         mView = LayoutInflater.from(mContext).inflate(R.layout.kotlin_addvalue_layout,null)
         contentView = mView
-        contentView.findViewById<EditText>(R.id.add_timedata_edit).setOnClickListener(View.OnClickListener {
+        data_edit = contentView.findViewById<EditText>(R.id.add_timedata_edit)
+        data_date = contentView.findViewById<TextView>(R.id.add_timedata_date)
+        data_time = contentView.findViewById<TextView>(R.id.add_timedata_time)
+        /**
+         * 弹出输入框
+         * */
+
+        data_edit!!.setOnClickListener(View.OnClickListener {
             view: View? ->
             val imm = mContext!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             view!!.requestFocus()
@@ -45,32 +57,89 @@ class KotlinAddPopWindow(mContext: Context) :PopupWindow(){
             }
             isshowimm = !isshowimm
         })
+        /**
+         * 时间 2018年11月27日
+         * */
+        data_date!!.setOnClickListener(View.OnClickListener {
+            wheelMain = WheelMain(mContext,
+                    data_date!!.text as String?
+                    ,View.OnClickListener {
+                data_date!!.text = wheelMain!!.time
+            })
+            wheelMain!!._show()
+        })
+        /**
+         * 时间 10:26:49
+         * */
+        data_time!!.setOnClickListener(View.OnClickListener {
+            wheelMain = WheelMain(mContext,
+                    data_time!!.text as String?
+                    ,View.OnClickListener {
+                data_time!!.text = wheelMain!!.time
+            })
+            wheelMain!!._show()
+        })
+        /**
+         * 确定
+         * submit
+         * */
         contentView.findViewById<ImageView>(R.id.next_img).setOnClickListener(View.OnClickListener {
-            if(!ToolUtils.isFastClick()&&mContext is KotlinAddpopFace){
+            dismiss_()
+            if(ToolUtils.isNull(data_edit!!.text.toString())){
+                ToastUtil.ToastCenterHandler(mContext,"内容不可为空哦",1000)
+                return@OnClickListener
+            }
+
+            if(!ToolUtils.isFastClick() && mContext is KotlinAddpopFace){
+                if(contentView!!.getTag()!=null){
                     (mContext as KotlinAddpopFace).Submit(KotlinBean(
-                            -1,
-                            contentView.findViewById<EditText>(R.id.add_timedata_edit).text.toString(),
-                            contentView.findViewById<TextView>(R.id.add_timedata_time).text.toString(),
+                            contentView!!.getTag() as Int,
+                            data_edit!!.text.toString(),
+                            data_date!!.text.toString() +" "+ data_time!!.text.toString(),
                             false
                     ))
-                    dismiss_()
+                }else{
+                    (mContext as KotlinAddpopFace).Submit(KotlinBean(
+                            -1,
+                            data_edit!!.text.toString(),
+                            data_date!!.text.toString() +" "+ data_time!!.text.toString(),
+                            false
+                    ))
+                }
             }
         })
+        setOnDismissListener {
+            data_edit!!.setText("")
+            contentView!!.setTag(null)
+        }
         this.width = ToolUtils.getWidth(mContext)
-        // 设置SelectPicPopupWindow弹出窗体的高
-        this.height = ToolUtils.dpToPx(250f)
-        // 设置SelectPicPopupWindow弹出窗体可点击
+        this.height = ToolUtils.dpToPx(220f)
         setFocusable(true)
         // 设置允许在外点击消失
         setOutsideTouchable(false)
         // 设置背景，这个是为了点击“返回Back”也能使其消失，并且并不会影响你的背景
+        contentView.setBackgroundDrawable(mContext!!.resources.getDrawable(R.mipmap.pop_bg))
         setBackgroundDrawable(BitmapDrawable())
         //软键盘不会挡着popupwindow
         setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         fitPopupWindowOverStatusBar(true)
-
-
         return this
+    }
+
+    /**
+     * 修改数据
+     * */
+    fun show_(kotlinBean: KotlinBean){
+        contentView.setTag(kotlinBean.Id)
+        data_edit!!.setText(kotlinBean.Account)
+        try {
+            data_date!!.setText(ToolUtils.changeDateFormat("yyyy年MM月dd日 HH:mm:ss",
+                    "yyyy年MM月dd日",kotlinBean.Time))
+            data_time!!.setText(ToolUtils.changeDateFormat("yyyy年MM月dd日 HH:mm:ss",
+                    "HH:mm:ss",kotlinBean.Time))
+            data_edit!!.setSelection(kotlinBean.Account.length)
+        }catch (e:Exception){}
+        showAtLocation((mContext as Activity).getWindow().getDecorView(), Gravity.TOP, 0, 0)
     }
 
     fun show_(){

@@ -3,6 +3,7 @@
 
     <!--换肤所需要的自定义属性-->
     <attr name="bg_color" format="reference|color"/>
+    <attr name="item_color" format="reference|color"/>
     <attr name="font_color" format="reference|color"/>
     <attr name="line_color" format="reference|color"/>
     <attr name="edit_color" format="reference|color"/>

@@ -7,14 +7,14 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.example.hspcadmin.htmlproject.R
 import com.example.hspcadmin.htmlproject.util.SharedPUtils
 import com.example.hspcadmin.htmlproject.util.ToolUtils
-import kotlinx.android.synthetic.main.item_kotlin_timecheck.view.*
+import kotlinx.android.synthetic.main.kotlin_item_timecheck.view.*
 import org.json.JSONArray
 import org.json.JSONObject
 
 /**
  * Created by hspcadmin on 2018/11/13.
  */
-class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuickAdapter<KotlinBean,BaseViewHolder>(R.layout.item_kotlin_timecheck,data){
+class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuickAdapter<KotlinBean,BaseViewHolder>(R.layout.kotlin_item_timecheck,data){
 
     override fun convert(helper: BaseViewHolder, item: KotlinBean) {
         helper?.let {
@@ -42,7 +42,6 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
                     jsonarr.remove(index)
                     SharedPUtils.setKolinJsonVar(jsonarr.toString())
                     break
-
             }
         }
 
@@ -78,6 +77,34 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
         SharedPUtils.setKolinJsonVar(jsonarr.toString())
         data.add(0,bean)
         notifyItemInserted(0)
+    }
+
+    /**
+     * @account 修改列表数据
+     * @author wzheng
+     * @param id : 匹配本地数据id
+     * */
+    fun updateVar(bean: KotlinBean){
+        var jsonarr = JSONArray(SharedPUtils.getKolinJsonVar())
+        var id:Int = bean.Id
+        for (index in 0 until jsonarr.length()){
+            if(jsonarr.getJSONObject(index).getInt("id")==id){
+                jsonarr.getJSONObject(index).put("account",bean.Account)
+                jsonarr.getJSONObject(index).put("time",bean.Time)
+                jsonarr.getJSONObject(index).put("check",bean.Check)
+                SharedPUtils.setKolinJsonVar(jsonarr.toString())
+                break
+            }
+        }
+        for (index in 0 until data.size){
+            if(data.get(index).Id==id){
+                data.get(index).Account = bean.Account
+                data.get(index).Time = bean.Time
+                data.get(index).Check = bean.Check
+                break
+            }
+        }
+        notifyDataSetChanged()
     }
 
 }

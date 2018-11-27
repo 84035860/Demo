@@ -8,27 +8,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/add_timedata_time"
+        <LinearLayout
+            android:id="@+id/add_timedata_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="22sp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:text="2018年11月15日19:30:51"
-            android:textColor="?attr/font_color"
-            android:background="@drawable/trade_bd_edit"
-            />
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/add_timedata_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="3dp"
+                android:text="2018年11月15日"
+                android:textColor="?attr/font_color"
+                android:background="@drawable/trade_bd_edit"
+                />
+            <TextView
+                android:id="@+id/add_timedata_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:text="09:26:07"
+                android:textColor="?attr/font_color"
+                android:background="@drawable/trade_bd_edit"
+                />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/add_timedata_edit"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:layout_margin="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:padding="15dp"
             android:textSize="15sp"
             android:gravity="top"

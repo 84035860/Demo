@@ -8,6 +8,8 @@
     <color name="trade_tab">#212233</color>
     <color name="white">#FFFFFF</color>
     <color name="_3A3A52">#3A3A52</color>
+    <color name="trade_item">#1A1C29</color>
+    <color name="_F5F5F5">#F5F5F5</color>
 
     <!--黄色yellow-->
     <color name="yellow">#D6A440</color>
