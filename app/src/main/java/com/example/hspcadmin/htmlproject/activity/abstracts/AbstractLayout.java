@@ -80,8 +80,10 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewAction> ext
     public void updataView(AbstractPresenter viewAction) {
         this.removeAllViews();
         this.addView(contextView);
-        viewAction.initView(contextView);
-        viewAction.setAction();
+        if(viewAction!=null){
+            viewAction.initView(contextView);
+            viewAction.setAction();
+        }
     }
 
     @Override

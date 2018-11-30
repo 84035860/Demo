@@ -6,6 +6,8 @@ import com.example.hspcadmin.htmlproject.activity.presenter.AbstractPresenter;
 
 /**
  * Created by hspcadmin on 2018/11/5.
+ *
+ * 设计模式  页面加载进度控制
  */
 
 public interface ViewContractType {

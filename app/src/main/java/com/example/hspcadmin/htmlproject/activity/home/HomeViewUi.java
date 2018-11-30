@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractActivity;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
-import com.example.hspcadmin.htmlproject.activity.presenter.AbstractPresenter;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;
 import com.example.hspcadmin.htmlproject.view.ProgressTime;
 
@@ -52,13 +51,9 @@ public class HomeViewUi extends AbstractLayout {
     public HomeViewUi(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-    }
-
-    @Override
-    public void updataView(AbstractPresenter viewAction) {
-        super.updataView(viewAction);
         contextView = LayoutInflater.from(context).inflate(R.layout.home_layout, null, true);
         ButterKnife.bind(this, contextView);
+        updataView(null);
     }
 
     @OnClick({R.id.app_skip, R.id.app_dome1, R.id.app_dome2, R.id.app_dome3,R.id.app_dome4})
@@ -83,7 +78,6 @@ public class HomeViewUi extends AbstractLayout {
                 try {
                     ((Activity) context).startActivityForResult(intent, RESULT_OK);
                 } catch (Exception e) {
-                    e.printStackTrace();
                     Toast.makeText(context, "没有匹配的APP，请下载安装", Toast.LENGTH_SHORT).show();
                 }
 //                    Intent intent = new Intent(MainHostActivity.this, ProperService.class);

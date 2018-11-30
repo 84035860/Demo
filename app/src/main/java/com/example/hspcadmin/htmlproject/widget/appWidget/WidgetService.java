@@ -8,7 +8,6 @@ import android.os.IBinder;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.widget.mvp.presenter.GridInfoPresenter;
@@ -42,7 +41,6 @@ public class WidgetService extends Service implements GridInfoView {
         appWidgetManager = AppWidgetManager.getInstance(WidgetService.this);
         //利用MVP模式，下载数据。备注：如果对MVP不是很了解的话，也可以使用自己的请求方式请求数据即可。
         //另：如果你想学习MVP模式的话：可前往“https://github.com/GodDavide/MVP”查看MVP模式介绍，感谢您的支持。
-        Toast.makeText(WidgetService.this, "小组件拼命加载中...", Toast.LENGTH_SHORT).show();
         gridInfoPresenter = new GridInfoPresenter(this);
 
         gridInfoPresenter.loadWidgetInfo();
@@ -63,7 +61,6 @@ public class WidgetService extends Service implements GridInfoView {
     @Override
     public void onDestroy() {
         isUpdata = false;
-        Log.e("test", "---handler"+appWidgetIds+"--"+appWidgetManager);
         super.onDestroy();
     }
 

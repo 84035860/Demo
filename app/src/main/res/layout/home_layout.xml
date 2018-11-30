@@ -75,4 +75,13 @@
         android:tag="@string/skin_button_color"
         android:textColor="?attr/button_font_color"
         android:background="?attr/button_bg_color"/>
+
+    <com.example.hspcadmin.htmlproject.view.ProgressRoundBar
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:max="100"
+        android:progress="100"
+        style="@android:style/Widget.ProgressBar.Inverse" />
+
 </LinearLayout>

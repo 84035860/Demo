@@ -27,7 +27,6 @@ public class UpdateWidget {
         this.remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_main_layout);
         //为了方便，在创建UpdateWidget实例的时候，直接调用UpdateWidgetView();
         UpdateWidgetView();
-        Log.e("test", "---UpdateWidget");
     }
 
     public void UpdateWidgetView() {
