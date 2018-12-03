@@ -14,6 +14,7 @@ import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractActivity;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;
+import com.example.hspcadmin.htmlproject.view.ProgressRoundBar;
 import com.example.hspcadmin.htmlproject.view.ProgressTime;
 
 import butterknife.BindView;
@@ -42,6 +43,8 @@ public class HomeViewUi extends AbstractLayout {
     TextView appDome3;
     @BindView(R.id.app_dome4)
     TextView appDome4;
+    @BindView(R.id.app_roundbar)
+    ProgressRoundBar appRoundbar;
     private Context context;
 
     public HomeViewUi(Context context) {
@@ -56,7 +59,7 @@ public class HomeViewUi extends AbstractLayout {
         updataView(null);
     }
 
-    @OnClick({R.id.app_skip, R.id.app_dome1, R.id.app_dome2, R.id.app_dome3,R.id.app_dome4})
+    @OnClick({R.id.app_skip, R.id.app_dome1, R.id.app_dome2, R.id.app_dome3, R.id.app_dome4})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.app_skip:
@@ -91,7 +94,7 @@ public class HomeViewUi extends AbstractLayout {
 
     @Override
     public void onResume() {
-
+        appRoundbar.setProgress_run(50);
     }
 
     @Override

@@ -136,6 +136,9 @@ public class MainHostActivity extends BaseActivity {
         demoHostBottom.clearBottomState();
         demoHostBottom.setCheckState(i);
         demoHostViewpager.setCurrentItem(i);
+        if(HostView.get(i) instanceof AbstractLayout){
+            ((AbstractLayout)HostView.get(i)).onResume();
+        }
         switch (i) {
             case 0:
                 break;
