@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/html_clean"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="清除"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/red"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="webview 手动编译工具"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_18"/>
+        <TextView
+            android:id="@+id/html_star"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="运行"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@color/green"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/html_code_edit"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:gravity="top"
+        android:padding="5dp"
+        android:hint="输入想要编译的html代码"
+        android:background="@drawable/trade_bd_edit"/>
+
+    <WebView
+        android:id="@+id/html_webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"/>
+
+</LinearLayout>

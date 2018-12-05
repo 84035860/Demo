@@ -39,9 +39,9 @@ class KotlinaddpopWindow(mContext: Context) :PopupWindow(){
     fun initView():KotlinaddpopWindow{
         mView = LayoutInflater.from(mContext).inflate(R.layout.kotlin_addvalue_layout,null)
         contentView = mView
-        data_edit = contentView.findViewById<EditText>(R.id.add_timedata_edit)
-        data_date = contentView.findViewById<TextView>(R.id.add_timedata_date)
-        data_time = contentView.findViewById<TextView>(R.id.add_timedata_time)
+        data_edit = contentView.findViewById(R.id.add_timedata_edit)
+        data_date = contentView.findViewById(R.id.add_timedata_date)
+        data_time = contentView.findViewById(R.id.add_timedata_time)
         /**
          * 弹出输入框
          * */
@@ -84,13 +84,12 @@ class KotlinaddpopWindow(mContext: Context) :PopupWindow(){
          * submit
          * */
         contentView.findViewById<ImageView>(R.id.next_img).setOnClickListener(View.OnClickListener {
-            dismiss_()
-            if(ToolUtils.isNull(data_edit!!.text.toString())){
-                ToastUtil.ToastCenterHandler(mContext,"内容不可为空哦",1000)
-                return@OnClickListener
-            }
-
             if(!ToolUtils.isFastClick() && mContext is KotlinAddpopFace){
+                if(ToolUtils.isNull(data_edit!!.text.toString())){
+                    ToastUtil.ToastCenterHandler(mContext,"内容不可为空哦",1000)
+                    return@OnClickListener
+                }
+
                 if(contentView!!.getTag()!=null){
                     (mContext as KotlinAddpopFace).Submit(KotlinBean(
                             contentView!!.getTag() as Int,
@@ -107,11 +106,11 @@ class KotlinaddpopWindow(mContext: Context) :PopupWindow(){
                     ))
                 }
             }
+            dismiss_()
         })
-        setOnDismissListener {
+        this.setOnDismissListener {
             data_edit!!.setText("")
-            contentView!!.setTag(null)
-        }
+            contentView!!.setTag(null) }
         this.width = ToolUtils.getWidth(mContext)
         this.height = ToolUtils.dpToPx(220f)
         setFocusable(true)

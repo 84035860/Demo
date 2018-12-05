@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
@@ -14,8 +15,9 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.LinearLayout;
+import android.widget.EditText;
 
+import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 
 /**
@@ -24,9 +26,9 @@ import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 
 public class WebViewUi extends AbstractLayout{
     private Context context;
-    WebView webView;
+    private WebView webView;
     private String WebViewUrl = "https://www.baidu.com/";
-    private boolean isERROR = false;
+    private EditText code_edit;
 
     public WebViewUi(Context context) {
         this(context, null);
@@ -35,7 +37,15 @@ public class WebViewUi extends AbstractLayout{
     public WebViewUi(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        webView = new WebView(context);
+        contextView = LayoutInflater.from(context).inflate(R.layout.webview_layout,null);
+        updataView(null);
+        init();
+    }
+
+    private void init() {
+        webView = contextView.findViewById(R.id.html_webview);
+        code_edit = contextView.findViewById(R.id.html_code_edit);
+
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
@@ -47,19 +57,32 @@ public class WebViewUi extends AbstractLayout{
         webView.requestFocus();
         webView.setWebViewClient(new MyWebViewClient());
         webView.setWebChromeClient(new WebViewChromeClientDemo());
-        webView.setLayoutParams(new LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));
-        this.addView(webView);
-        init();
-    }
 
-    private void init() {
-        webView.loadUrl(WebViewUrl);
-    }
+        code_edit.setText("<html>\n" +
+                "\t<h3 id=\"demo\"> 点击打开App并跳转至指定界面</h3>\n" +
+                "\t<button onclick=\"myFunction()\">点击</button>\n" +
+                "\t<script>\n" +
+                "\t function myFunction(){\n" +
+                "\t\twindow.location.href = \"scheme://host/pathPrefix\"\n" +
+                "\t }\n" +
+                "\t</script>\n" +
+                "</html>");
 
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-        }
+        contextView.findViewById(R.id.html_star).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webView.loadDataWithBaseURL(null,code_edit.getText().toString(), "text/html", "utf-8", null);
+                webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+            }
+        });
+
+        contextView.findViewById(R.id.html_clean).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                code_edit.setText("");
+                webView.loadUrl(WebViewUrl);
+            }
+        });
     }
 
     @Override
@@ -74,21 +97,27 @@ public class WebViewUi extends AbstractLayout{
 
     private class MyWebViewClient extends WebViewClient {
         @Override
+        /**
+         * 网页跳转app  如果直接是html则使用浏览器跳转方式
+         *
+         * 如果使用app的webview跳转app则区需要在WebViewClient里进行特殊处理
+         * */
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             // 判断是否拨打电话
-            if (url.startsWith("baidumap://")||url.startsWith("mailto:") || url.startsWith("geo:") || url.startsWith("tel:")) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                context.startActivity(intent);
-            } else {
-                view.loadUrl(url);// 当打开新链接时，使用当前的 WebView，不会使用系统其他浏览器
-            }
+            try{
+                if(!url.contains("http")||url.contains("www")) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    context.startActivity(intent);
+                } else {
+                    view.loadUrl(url);// 当打开新链接时，使用当前的 WebView，不会使用系统其他浏览器
+                }
+            }catch (Exception e){}
             return true;
         }
 
         @Override
         public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
             super.onReceivedError(view, errorCode, description, failingUrl);
-            view.loadUrl(WebViewUrl);
         }
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
@@ -100,8 +129,7 @@ public class WebViewUi extends AbstractLayout{
         // 设置网页加载的进度条
         public void onProgressChanged(WebView view, int newProgress) {
 
-            if (newProgress == 100 && isERROR) {
-                webView.loadUrl(WebViewUrl);
+            if (newProgress == 100) {
             }
             super.onProgressChanged(view, newProgress);
         }

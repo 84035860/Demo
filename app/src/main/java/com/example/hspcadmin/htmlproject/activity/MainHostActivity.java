@@ -1,4 +1,4 @@
-package com.example.hspcadmin.htmlproject.activity.home;
+package com.example.hspcadmin.htmlproject.activity;
 
 import android.animation.Animator;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractActivity;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 import com.example.hspcadmin.htmlproject.activity.abstracts.BaseActivity;
+import com.example.hspcadmin.htmlproject.activity.home.HomeViewUi;
 import com.example.hspcadmin.htmlproject.util.EventBusUtils;
 import com.example.hspcadmin.htmlproject.util.EventBusVal;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;

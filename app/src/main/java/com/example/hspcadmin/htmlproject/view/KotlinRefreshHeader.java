@@ -57,12 +57,12 @@ public class KotlinRefreshHeader extends AbstractLayout<AbstractPresenter> imple
         contextView.findViewById(R.id.add_timedata_edit).setFocusable(false);
         updataView(new Presenter());
         popWindow = new KotlinaddpopWindow(mContext).initView();
-        popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                popWindow.dismiss_();
-            }
-        });
+//        popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+//            @Override
+//            public void onDismiss() {
+//                popWindow.dismiss_();
+//            }
+//        });
     }
 
     @Override

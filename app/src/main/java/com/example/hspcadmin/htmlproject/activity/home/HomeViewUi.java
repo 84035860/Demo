@@ -46,6 +46,7 @@ public class HomeViewUi extends AbstractLayout {
     @BindView(R.id.app_roundbar)
     ProgressRoundBar appRoundbar;
     private Context context;
+    private Activity mActivity;
 
     public HomeViewUi(Context context) {
         this(context, null);
@@ -54,6 +55,7 @@ public class HomeViewUi extends AbstractLayout {
     public HomeViewUi(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        this.mActivity = ((Activity) context);
         contextView = LayoutInflater.from(context).inflate(R.layout.home_layout, null, true);
         ButterKnife.bind(this, contextView);
         updataView(null);
@@ -76,10 +78,10 @@ public class HomeViewUi extends AbstractLayout {
                 ToolUtils.starIntentBaseView(AbstractActivity.class, BASEVIEW_OKHTTP);
                 break;
             case R.id.app_dome3:
-                Uri data = Uri.parse("yijintong://123");
+                Uri data = Uri.parse("scheme://host/pathPrefix");
                 Intent intent = new Intent(Intent.ACTION_VIEW, data);
                 try {
-                    ((Activity) context).startActivityForResult(intent, RESULT_OK);
+                    mActivity.startActivityForResult(intent, RESULT_OK);
                 } catch (Exception e) {
                     Toast.makeText(context, "没有匹配的APP，请下载安装", Toast.LENGTH_SHORT).show();
                 }
@@ -94,7 +96,7 @@ public class HomeViewUi extends AbstractLayout {
 
     @Override
     public void onResume() {
-        appRoundbar.setProgress_run(50);
+        appRoundbar.setProgress_run(500);
     }
 
     @Override

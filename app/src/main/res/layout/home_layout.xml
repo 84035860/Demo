@@ -8,7 +8,6 @@
     <com.example.hspcadmin.htmlproject.view.ProgressTime
         android:id="@+id/app_progresstime"
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
         android:layout_height="40dp"
         />
     <TextView

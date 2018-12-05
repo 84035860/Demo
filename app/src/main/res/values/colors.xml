@@ -15,7 +15,8 @@
     <color name="yellow">#D6A440</color>
     <!-- 黑色 -->
     <color name="black">#262834</color>
-
+    <!-- 红色 -->
+    <color name="red">#F95D5D</color>
 
     <color name="transparent">#00000000</color>
 </resources>

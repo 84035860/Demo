@@ -215,6 +215,7 @@ public class SwitchView extends View {
         // draw background
 
 
+        //边框色 isOn ?  选中: 未选中
         paint.setStyle(Style.FILL);
         paint.setColor(isOn ? 0xffD6A440 : 0xffe3e3e3);
         canvas.drawPath(sPath, paint);
@@ -224,6 +225,7 @@ public class SwitchView extends View {
         // draw background animation
 
 
+        //背景色
         final float scale = sScale * (isOn ? sAnim : 1 - sAnim);
         final float scaleOffset = (bOnLeftX + bRadius - sCenterX) * (isOn ? 1 - sAnim : sAnim);
         canvas.save();
@@ -242,6 +244,7 @@ public class SwitchView extends View {
         // draw shadow
 
 
+        //阴影色
         paint.setStyle(Style.FILL);
         paint.setColor(0xff333333);
         paint.setShader(shadowGradient);
@@ -249,14 +252,15 @@ public class SwitchView extends View {
         paint.setShader(null);
         canvas.translate(0, -shadowHeight);
 
+        //圆形按钮
         canvas.scale(0.98f, 0.98f, bWidth / 2, bWidth / 2);
         paint.setStyle(Style.FILL);
         paint.setColor(0xffffffff);
         canvas.drawPath(bPath, paint);
 
+        //背景色 isOn ? 选中 : 未选中
         paint.setStyle(Style.STROKE);
         paint.setStrokeWidth(bStrokeWidth * 0.5f);
-
         paint.setColor(isOn ? switchColor : 0xffbfbfbf);
         canvas.drawPath(bPath, paint);
 
@@ -354,15 +358,20 @@ public class SwitchView extends View {
 //        }, 100);
     }
 
-    private synchronized void toggleSwitch(int wich) {
-        if (wich == STATE_SWITCH_ON || wich == STATE_SWITCH_OFF) {
-            if ((wich == STATE_SWITCH_ON && (lastState == STATE_SWITCH_OFF || lastState == STATE_SWITCH_OFF2))
-                    || (wich == STATE_SWITCH_OFF && (lastState == STATE_SWITCH_ON || lastState == STATE_SWITCH_ON2))) {
-                sAnim = 0;
+    private synchronized void toggleSwitch(final int wich) {
+        postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (wich == STATE_SWITCH_ON || wich == STATE_SWITCH_OFF) {
+                    if ((wich == STATE_SWITCH_ON && (lastState == STATE_SWITCH_OFF || lastState == STATE_SWITCH_OFF2))
+                            || (wich == STATE_SWITCH_OFF && (lastState == STATE_SWITCH_ON || lastState == STATE_SWITCH_ON2))) {
+                        sAnim = 0;
+                    }
+                    bAnim = 0;
+                    refreshState(wich);
+                }
             }
-            bAnim = 0;
-            refreshState(wich);
-        }
+        }, 100);
     }
 
     public interface OnStateChangedListener {

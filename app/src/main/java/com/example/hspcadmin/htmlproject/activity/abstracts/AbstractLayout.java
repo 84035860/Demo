@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.presenter.AbstractPresenter;
 import com.example.hspcadmin.htmlproject.exception.AppException;
+import com.example.hspcadmin.htmlproject.util.ToolUtils;
 import com.example.hspcadmin.htmlproject.util.changeskin.ColorUiInterface;
 
 import java.util.ArrayList;
@@ -80,6 +81,7 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewAction> ext
     public void updataView(AbstractPresenter viewAction) {
         this.removeAllViews();
         this.addView(contextView);
+        contextView.setPadding(0, ToolUtils.dpToPx(20),0,0);
         if(viewAction!=null){
             viewAction.initView(contextView);
             viewAction.setAction();
@@ -89,6 +91,7 @@ public abstract class AbstractLayout <T extends ViewContractType.ViewAction> ext
     @Override
     public void errorView() {
         this.removeAllViews();
+        textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         textView.setText("页面加载错误");
         this.addView(textView);
     }

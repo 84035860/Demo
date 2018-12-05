@@ -89,11 +89,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.home.MainHostActivity"
+        <activity android:name=".activity.MainHostActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="standard"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeMain"/>
+            android:theme="@style/AppThemeMain"
+            android:enabled="true"
+
+            />
         <activity android:name=".activity.abstracts.AbstractActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="standard"

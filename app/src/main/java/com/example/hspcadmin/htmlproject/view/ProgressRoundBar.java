@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.example.hspcadmin.htmlproject.R;
@@ -82,7 +83,10 @@ public class ProgressRoundBar extends View implements TimeCountDown.TimeCountFac
         paint.setColor(mContext.getResources().getColor(R.color.green));
         canvas.drawArc(rectF,-90,360*level,false,paint);
 
-        String str = String.valueOf(times/10 + 1);
+        /**
+         * 为传入 time_var 的倍数
+         * */
+        String str = String.valueOf(times/100 + 1);
         Rect rect = new Rect();
         paint.setTextSize(46f);
         paint.getTextBounds(str,0,str.length(), rect);
@@ -93,7 +97,7 @@ public class ProgressRoundBar extends View implements TimeCountDown.TimeCountFac
     }
 
     /**
-    *@param times :  50 -- 5s
+    *@param time_var*period 为毫秒数 :  500 -- 5s
     *
     * */
     private TimeCountDown countDown;
@@ -104,7 +108,7 @@ public class ProgressRoundBar extends View implements TimeCountDown.TimeCountFac
         }
         this.time_var = time_var;
         this.times = time_var;
-        countDown.star(100);
+        countDown.star(10);
     }
 
     @Override
@@ -125,10 +129,9 @@ public class ProgressRoundBar extends View implements TimeCountDown.TimeCountFac
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == TimeCountDown.HANDLE_WHAT_STAR){
-                postInvalidate();
             }else if(msg.what == TimeCountDown.HANDLE_WHAT_END){
-
             }
+            postInvalidate();
             super.handleMessage(msg);
         }
     };

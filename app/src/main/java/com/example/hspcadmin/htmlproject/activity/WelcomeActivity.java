@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hspcadmin.htmlproject.R;
-import com.example.hspcadmin.htmlproject.activity.home.MainHostActivity;
 import com.example.hspcadmin.htmlproject.util.CompressedZipUtils;
 import com.example.hspcadmin.htmlproject.util.UimoduleUtils;
 import com.example.hspcadmin.htmlproject.view.ProgressRoundBar;
@@ -41,7 +40,7 @@ public class WelcomeActivity extends Activity{
         }
 
         InitException();
-        roundBar.setProgress_run(30);
+        roundBar.setProgress_run(295);
     }
 
     private void InitException(){

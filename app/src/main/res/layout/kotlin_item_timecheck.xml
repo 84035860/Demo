@@ -6,13 +6,27 @@
     android:gravity="center_vertical"
     android:background="@drawable/item_layout_img"
     android:padding="5dp">
-    
-    <com.example.hspcadmin.htmlproject.view.CircleImageView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.7"
-        android:src="@mipmap/tom"/>
 
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_weight="0.7"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+        <com.example.hspcadmin.htmlproject.view.CircleImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/tom"/>
+
+        <com.example.hspcadmin.htmlproject.view.SwitchView
+            android:id="@+id/item_kotlin_time_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"

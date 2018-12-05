@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.example.hspcadmin.htmlproject.R
 import com.example.hspcadmin.htmlproject.util.SharedPUtils
 import com.example.hspcadmin.htmlproject.util.ToolUtils
+import com.example.hspcadmin.htmlproject.view.SwitchView
 import kotlinx.android.synthetic.main.kotlin_item_timecheck.view.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -23,6 +24,17 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
             helper.itemView.item_kotlin_close.setOnClickListener({
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     removeVar(item.Id)
+                }
+            })
+            helper.itemView.item_kotlin_time_switch.setOnStateChangedListener(object :SwitchView.OnStateChangedListener{
+                override fun toggleToOn() {
+                    item.Check = true
+                    updateVar(item)
+                }
+
+                override fun toggleToOff() {
+                    item.Check = false
+                    updateVar(item)
                 }
             })
         }
@@ -68,8 +80,9 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
                 id++
             }
         } catch (e: Exception) { }
+        bean.Id = id
         var jsonobj = JSONObject()
-        jsonobj.put("id",id)
+        jsonobj.put("id",bean.Id)
         jsonobj.put("account",bean.Account)
         jsonobj.put("time",bean.Time)
         jsonobj.put("check",bean.Check)
