@@ -359,9 +359,9 @@ public class SwitchView extends View {
     }
 
     private synchronized void toggleSwitch(final int wich) {
-        postDelayed(new Runnable() {
-            @Override
-            public void run() {
+//        postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
                 if (wich == STATE_SWITCH_ON || wich == STATE_SWITCH_OFF) {
                     if ((wich == STATE_SWITCH_ON && (lastState == STATE_SWITCH_OFF || lastState == STATE_SWITCH_OFF2))
                             || (wich == STATE_SWITCH_OFF && (lastState == STATE_SWITCH_ON || lastState == STATE_SWITCH_ON2))) {
@@ -370,8 +370,8 @@ public class SwitchView extends View {
                     bAnim = 0;
                     refreshState(wich);
                 }
-            }
-        }, 100);
+//            }
+//        }, 10);
     }
 
     public interface OnStateChangedListener {

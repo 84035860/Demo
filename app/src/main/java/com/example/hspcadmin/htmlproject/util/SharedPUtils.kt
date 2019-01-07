@@ -5,7 +5,7 @@ import android.preference.PreferenceManager
 import com.example.hspcadmin.htmlproject.exception.AppException
 
 /**
- * Created by hspcadmin on 2018/11/14.
+ * Created by wzheng on 2018/11/14.
  */
 
 object SharedPUtils{

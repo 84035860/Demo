@@ -1,7 +1,7 @@
 package com.example.hspcadmin.htmlproject.util
 
 /**
- * Created by hspcadmin on 2018/10/17.
+ * Created by wzheng on 2018/10/17.
  *
  * EventBugs 常量类型区分类
  *

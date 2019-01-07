@@ -12,7 +12,7 @@ import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.exception.AppException;
 
 /**
- * Created by hspcadmin on 2018/6/28.
+ * Created by wzheng on 2018/6/28.
  */
 
 public abstract class BaseActivity extends AppCompatActivity {

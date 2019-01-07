@@ -21,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
 /**
- * Created by hspcadmin on 2018/10/8.
+ * Created by wzheng on 2018/10/8.
  */
 
 public class RxjavaViewUi extends AbstractLayout {

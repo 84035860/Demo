@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by hspcadmin on 2018/10/10.
+ * Created by wzheng on 2018/10/10.
  */
 
 public class SettingHomeViewUi extends AbstractLayout {

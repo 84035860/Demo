@@ -4,7 +4,7 @@ import android.view.View
 import com.example.hspcadmin.htmlproject.activity.abstracts.ViewContractType
 
 /**
- * Created by hspcadmin on 2018/11/22.
+ * Created by wzheng on 2018/11/22.
  */
 abstract class AbstractPresenter:ViewContractType.ViewAction{
     var mView:View? =null

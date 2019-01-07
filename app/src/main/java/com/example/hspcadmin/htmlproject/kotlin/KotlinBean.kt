@@ -6,7 +6,7 @@ import com.example.hspcadmin.htmlproject.exception.AppException
 import kotlin.reflect.KClass
 
 /**
- * Created by hspcadmin on 2018/10/15.
+ * Created by wzheng on 2018/10/15.
  */
 data class KotlinBean(
         //实体类

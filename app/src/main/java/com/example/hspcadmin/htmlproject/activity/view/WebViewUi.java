@@ -21,7 +21,7 @@ import com.example.hspcadmin.htmlproject.R;
 import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 
 /**
- * Created by hspcadmin on 2018/10/10.
+ * Created by wzheng on 2018/10/10.
  */
 
 public class WebViewUi extends AbstractLayout{

@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.hspcadmin.htmlproject.view.BottomNavigationBar
+    <com.example.hspcadmin.htmlproject.view.NavigationBar
         android:id="@+id/demo_host_bottom"
         android:layout_width="match_parent"
         android:layout_height="65dp"

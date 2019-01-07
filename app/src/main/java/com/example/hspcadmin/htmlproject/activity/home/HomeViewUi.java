@@ -27,7 +27,7 @@ import static com.example.hspcadmin.htmlproject.util.UimoduleUtils.BASEVIEW_OKHT
 import static com.example.hspcadmin.htmlproject.util.UimoduleUtils.BASEVIEW_RXJAVA;
 
 /**
- * Created by hspcadmin on 2018/10/10.
+ * Created by wzheng on 2018/10/10.
  */
 
 public class HomeViewUi extends AbstractLayout {
@@ -78,7 +78,7 @@ public class HomeViewUi extends AbstractLayout {
                 ToolUtils.starIntentBaseView(AbstractActivity.class, BASEVIEW_OKHTTP);
                 break;
             case R.id.app_dome3:
-                Uri data = Uri.parse("scheme://host/pathPrefix");
+                Uri data = Uri.parse("yijintong://");
                 Intent intent = new Intent(Intent.ACTION_VIEW, data);
                 try {
                     mActivity.startActivityForResult(intent, RESULT_OK);

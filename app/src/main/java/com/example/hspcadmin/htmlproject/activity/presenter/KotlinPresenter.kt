@@ -3,7 +3,7 @@ package com.example.hspcadmin.htmlproject.activity.presenter
 import com.example.hspcadmin.htmlproject.R
 
 /**
- * Created by hspcadmin on 2018/11/22.
+ * Created by wzheng on 2018/11/22.
  */
 class KotlinPresenter :AbstractPresenter(){
     var isAction:Boolean = false

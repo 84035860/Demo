@@ -5,7 +5,7 @@ import android.view.View;
 import com.example.hspcadmin.htmlproject.activity.presenter.AbstractPresenter;
 
 /**
- * Created by hspcadmin on 2018/11/5.
+ * Created by wzheng on 2018/11/5.
  *
  * 设计模式  页面加载进度控制
  */

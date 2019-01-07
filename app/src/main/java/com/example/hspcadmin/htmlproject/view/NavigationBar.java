@@ -18,7 +18,7 @@ import com.example.hspcadmin.htmlproject.R;
 import java.util.ArrayList;
 
 
-public class BottomNavigationBar extends LinearLayout implements View.OnClickListener {
+public class NavigationBar extends LinearLayout implements View.OnClickListener {
 
     View mLine;
     TextView mTvRadio1;
@@ -39,22 +39,22 @@ public class BottomNavigationBar extends LinearLayout implements View.OnClickLis
     private int mUnCheckColor;
     private int mCheckColor;
 
-    public BottomNavigationBar(Context context) {
+    public NavigationBar(Context context) {
         this(context, null);
     }
 
-    public BottomNavigationBar(Context context, AttributeSet attrs) {
+    public NavigationBar(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BottomNavigationBar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public NavigationBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 //        parseAttrs(context, attrs);
         init();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public BottomNavigationBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public NavigationBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 //        parseAttrs(context, attrs);
         init();

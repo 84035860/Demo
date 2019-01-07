@@ -73,6 +73,7 @@ dependencies {
     compile 'org.jetbrains.anko:anko-sdk15:0.8.3+' // sdk19, sdk21, sdk23 are also available
     compile 'org.jetbrains.anko:anko-support-v4:0.8.3+' // In case you need support-v4 bindings
     compile 'org.jetbrains.anko:anko-appcompat-v7:0.8.3+' // For appcompat-v7 bindings
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile(name: 'hs_dtk_core-release', ext: 'aar')
     compile(name: 'hs_dtk_packet-release', ext: 'aar')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

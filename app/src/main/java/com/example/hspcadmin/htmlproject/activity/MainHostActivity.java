@@ -24,7 +24,7 @@ import com.example.hspcadmin.htmlproject.util.EventBusVal;
 import com.example.hspcadmin.htmlproject.util.ToolUtils;
 import com.example.hspcadmin.htmlproject.util.UimoduleUtils;
 import com.example.hspcadmin.htmlproject.util.changeskin.ColorUiUtil;
-import com.example.hspcadmin.htmlproject.view.BottomNavigationBar;
+import com.example.hspcadmin.htmlproject.view.NavigationBar;
 import com.example.hspcadmin.htmlproject.view.CustomViewPager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -45,7 +45,7 @@ import butterknife.OnClick;
 public class MainHostActivity extends BaseActivity {
 
     @BindView(R.id.demo_host_bottom)
-    BottomNavigationBar demoHostBottom;
+    NavigationBar demoHostBottom;
     @BindView(R.id.demo_host_viewpager)
     CustomViewPager demoHostViewpager;
     @BindView(R.id.main_setting)
@@ -78,7 +78,7 @@ public class MainHostActivity extends BaseActivity {
         demoHostViewpager.setOnPageChangeListener(changeListener);
 
         demoHostBottom.setCheckState(0);
-        demoHostBottom.setOnTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
+        demoHostBottom.setOnTabSelectedListener(new NavigationBar.OnTabSelectedListener() {
             @Override
             public void onTabselected(int curPosition, int lastPosition) {
                 switchFragment(curPosition);

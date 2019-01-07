@@ -15,7 +15,7 @@ import com.example.hspcadmin.htmlproject.activity.abstracts.AbstractLayout;
 /**
  * 的11
  *
- * Created by hspcadmin on 2018/10/10.
+ * Created by wzheng on 2018/10/10.
  */
 
 public class ErrorViewUi extends AbstractLayout{

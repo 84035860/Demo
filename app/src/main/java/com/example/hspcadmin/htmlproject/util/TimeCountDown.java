@@ -7,7 +7,7 @@ import java.util.TimerTask;
  * 倒计时工具类
  *
  *
- * Created by hspcadmin on 2018/12/3.
+ * Created by wzheng on 2018/12/3.
  */
 
 public class TimeCountDown {

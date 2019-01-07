@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.hspcadmin.htmlproject.R;
 
 /**
- * Created by hspcadmin on 2018/10/8.
+ * Created by wzheng on 2018/10/8.
  */
 
 public class TopBaseView extends RelativeLayout {

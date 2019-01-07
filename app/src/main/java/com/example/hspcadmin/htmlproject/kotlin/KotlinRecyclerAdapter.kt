@@ -13,7 +13,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * Created by hspcadmin on 2018/11/13.
+ * Created by wzheng on 2018/11/13.
  */
 class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuickAdapter<KotlinBean,BaseViewHolder>(R.layout.kotlin_item_timecheck,data){
 
@@ -21,6 +21,13 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
         helper?.let {
             helper.itemView.item_kotlin_time_text.text = item.Time
             helper.itemView.item_kotlin_time_account.text = item.Account
+
+            if(item.Check){
+                helper.itemView.item_kotlin_time_switch.setState(true)
+            }else{
+                helper.itemView.item_kotlin_time_switch.setState(false)
+            }
+
             helper.itemView.item_kotlin_close.setOnClickListener({
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     removeVar(item.Id)
@@ -28,11 +35,13 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
             })
             helper.itemView.item_kotlin_time_switch.setOnStateChangedListener(object :SwitchView.OnStateChangedListener{
                 override fun toggleToOn() {
+                    helper.itemView.item_kotlin_time_switch.toggleSwitch(true)
                     item.Check = true
                     updateVar(item)
                 }
 
                 override fun toggleToOff() {
+                    helper.itemView.item_kotlin_time_switch.toggleSwitch(false)
                     item.Check = false
                     updateVar(item)
                 }
@@ -117,7 +126,7 @@ class KotlinRecyclerAdapter(mContext: Context,data : List<KotlinBean>?):BaseQuic
                 break
             }
         }
-        notifyDataSetChanged()
     }
+
 
 }

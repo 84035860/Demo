@@ -8,7 +8,6 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.example.hspcadmin.htmlproject.R;
@@ -17,7 +16,7 @@ import com.example.hspcadmin.htmlproject.util.TimeCountDown;
 /**
  * 环形倒计时控件
  *
- * Created by hspcadmin on 2018/11/30.
+ * Created by wzheng on 2018/11/30.
  */
 
 public class ProgressRoundBar extends View implements TimeCountDown.TimeCountFace{

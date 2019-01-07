@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hspcadmin on 2018/10/10.
+ * Created by wzheng on 2018/10/10.
  */
 public abstract class AbstractLayout <T extends ViewContractType.ViewAction> extends FrameLayout implements ColorUiInterface,ViewContractType.ViewType{
     public AppException exception;

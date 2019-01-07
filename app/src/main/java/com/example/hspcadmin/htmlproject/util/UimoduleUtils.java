@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * 组件化页面工具类
- * Created by hspcadmin on 2018/10/10.
+ * Created by wzheng on 2018/10/10.
  *
  * 组件化页面只需要:
  * 1.在UimoduleUtils()中的MAP添加UIBean

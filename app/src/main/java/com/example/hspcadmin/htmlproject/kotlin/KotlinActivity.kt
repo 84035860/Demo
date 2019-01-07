@@ -17,7 +17,7 @@ import org.json.JSONObject
 import java.util.*
 
 /**
- * Created by hspcadmin on 2018/10/15.
+ * Created by wzheng on 2018/10/15.
  */
 
 const val baseName:String = "kotlin"//const 编译期
@@ -32,6 +32,8 @@ class KotlinActivity:AbstractActivity(),KotlinaddpopWindow.KotlinAddpopFace{
     private val fragments = arrayOfNulls<String>(1)
     private var mAdapter: KotlinRecyclerAdapter? = null
     private var kotlinHead: KotlinRefreshHeader? = null
+    private var position:Int ?= 200
+    private var positions:Int ?= 200
 
     /**
      * @author 王政
@@ -55,18 +57,19 @@ class KotlinActivity:AbstractActivity(),KotlinaddpopWindow.KotlinAddpopFace{
         kotlin_recycler.itemAnimator = DefaultItemAnimator()
         kotlin_recycler.adapter = mAdapter
         kotlinHead = KotlinRefreshHeader(this)
+        refreshLayout.setEnableLoadMore(false)
         refreshLayout.setRefreshHeader(kotlinHead!!)
         refreshLayout.setHeaderHeight(220f)
         mAdapter!!.setOnItemClickListener(BaseQuickAdapter.OnItemClickListener { baseQuickAdapter, view, i ->
             kotlinHead!!.popWindow.show_(kotlinBeans.get(i))
         })
+        Test.sayMessage((position === positions).toString())
     }
 
     fun InitData(str:String){
         if(ToolUtils.isNull(SharedPUtils.getKolinJsonVar())){
             jsonarr  = JSONArray(
-                    "[{id = 0,account = \"吃饭饭\",time=\"2018年11月13日 16:55:23\",check = false}," +
-                            "{id = 1,account = \"值班\",time=\"2018年12月01日 16:55:23\",check = false}]")
+                    "[{id = 0,account = \"模板\",time=\"2018年11月13日 16:55:23\",check = false}")
             SharedPUtils.setKolinJsonVar(jsonarr.toString())
         }else{
             jsonarr = JSONArray(SharedPUtils.getKolinJsonVar())
@@ -77,7 +80,7 @@ class KotlinActivity:AbstractActivity(),KotlinaddpopWindow.KotlinAddpopFace{
                 /**
                  * 因为数据倒叙   显示需要反过来
                  * */
-                var jsonobj: JSONObject? = jsonarr!!.getJSONObject(jsonarr!!.length()-1- index)
+                var jsonobj: JSONObject = jsonarr!!.getJSONObject(jsonarr!!.length()-1- index)
                 var id = jsonobj!!.optInt("id")
                 var account = jsonobj!!.optString("account")
                 var time = jsonobj!!.optString("time")
@@ -98,6 +101,7 @@ class KotlinActivity:AbstractActivity(),KotlinaddpopWindow.KotlinAddpopFace{
     override fun Submit(bean: KotlinBean) {
         if(bean.Id!=-1){
             mAdapter!!.updateVar(bean)
+            mAdapter!!.notifyDataSetChanged()
         }else{
             mAdapter!!.insertVar(bean)
             kotlin_recycler.scrollToPosition(0)
